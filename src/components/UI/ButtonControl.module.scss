@@ -1,0 +1,20 @@
+.button{
+  background-color: transparent;
+  border: none;
+  box-shadow: 0 0 2px 1px var(--basic-color);
+  border-radius: 0.3rem;
+  margin:0.3rem;
+  padding: 0.2rem;
+  width: var(--btn-input-height);
+  height: var(--btn-input-height);
+  transition: all 0.2s;
+  color: green;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  &:active{
+    background-color: #eee;
+    transform:scale(0.96);
+  }
+}

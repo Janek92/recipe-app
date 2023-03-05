@@ -1,5 +1,7 @@
+import MainBar from "./components/UI/MainBar";
+
 function App() {
-  return <h1>Hello World</h1>;
+  return <MainBar />;
 }
 
 export default App;
