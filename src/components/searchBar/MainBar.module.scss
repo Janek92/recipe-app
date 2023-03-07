@@ -1,28 +1,27 @@
-.nav-bar{
-  height:4rem;
-  width:100%;
-  border-bottom:1px solid var(--basic-color);
+.nav-bar {
+  height: var(--bar-height);
+  width: 100%;
+  border-bottom: 1px solid var(--basic-color);
   position: fixed;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  .button-logo{
-    margin:0.3rem;
-    width:4rem;
+  .button-logo {
+    margin: 0.3rem;
+    width: 4rem;
     background-color: transparent;
     border: none;
     transition: all 0.2s;
-    &:active{
-      transform:scale(0.96);
+    &:active {
+      transform: scale(0.96);
     }
-    .logo{
+    .logo {
       width: 100%;
     }
   }
-  .menu{
+  .menu {
     display: flex;
     justify-content: center;
     align-items: center;
   }
 }
-

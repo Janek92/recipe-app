@@ -1,0 +1,66 @@
+@keyframes enter-div {
+  from {
+    transform: scale(0.1);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes enter-title {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.div,
+.title {
+  width: 96%;
+  //left positioning must be equal to half of the result 100% - width;
+  position: fixed;
+  left: 2%;
+  top: calc(var(--bar-height) + var(--bar-bottom-gap));
+  padding: calc(var(--radius-and-padding) / 2);
+  border: 2px solid var(--basic-color);
+}
+
+.div {
+  --radius-and-padding: 0.8rem;
+  --bar-bottom-gap: 0.4rem;
+  --title-height: 7rem;
+  border-radius: var(--radius-and-padding);
+  padding-top: calc(var(--title-height) + (var(--radius-and-padding) / 2));
+  animation: enter-div 0.35s cubic-bezier(0.06, 1.13, 0.58, 0.94);
+  max-height: calc(100vh - var(--bar-height) - 2 * var(--bar-bottom-gap));
+  overflow-y: auto;
+  .title {
+    height: calc(var(--title-height));
+    background-color: white;
+    border-bottom: none;
+    border-top-right-radius: var(--radius-and-padding);
+    border-top-left-radius: var(--radius-and-padding);
+    animation: enter-title 0.1s linear 0.35s both;
+    .h1 {
+      font-size: 1.4rem;
+      width: 86%;
+      display: flex;
+      overflow-x: auto;
+    }
+    .button {
+      font-size: 1rem;
+    }
+    .close {
+      --close-dimensions: 2rem;
+      width: var(--close-dimensions);
+      height: var(--close-dimensions);
+      border-radius: 2rem;
+      font-size: 1.3rem;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
+}

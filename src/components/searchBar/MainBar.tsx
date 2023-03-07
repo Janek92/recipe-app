@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import logo from "../../assets/Let's_eat.png";
 import classes from "./MainBar.module.scss";
 import { BsSearch, BsFillHeartFill } from "react-icons/bs";
-import ButtonControl from "./ButtonControl";
+import ButtonControl from "../UI/ButtonControl";
 import SearchBar from "./SearchBar";
 
 const MainBar: React.FC = () => {

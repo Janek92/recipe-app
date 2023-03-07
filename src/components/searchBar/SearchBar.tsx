@@ -1,9 +1,13 @@
 import classes from "./SearchBar.module.scss";
 import React, { useRef } from "react";
 import { BsArrowLeft } from "react-icons/bs";
-import ButtonControl from "./ButtonControl";
+import ButtonControl from "../UI/ButtonControl";
 
-const SearchBar: React.FC<{ onCloseInput: () => void }> = (props) => {
+interface Props {
+  onCloseInput: () => void;
+}
+
+const SearchBar: React.FC<Props> = (props) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
   const hideInputHandler = () => {

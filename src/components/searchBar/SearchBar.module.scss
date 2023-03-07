@@ -1,9 +1,21 @@
+@keyframes enter {
+  from {
+    opacity: 0.1;
+    transform: translateY(0.1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .div {
   width: 100%;
   height: 100%;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  animation: enter 0.5s linear;
   .form {
     width: 85%;
     height: 2.2rem;

@@ -1,7 +1,13 @@
-import MainBar from "./components/UI/MainBar";
+import MainBar from "./components/searchBar/MainBar";
+import SearchResults from "./components/UI/SearchResults";
 
 function App() {
-  return <MainBar />;
+  return (
+    <>
+      <MainBar />
+      <SearchResults />
+    </>
+  );
 }
 
 export default App;
