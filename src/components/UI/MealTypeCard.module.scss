@@ -1,0 +1,24 @@
+.div {
+  flex: 0 0 auto;
+  width: 8rem;
+  height: 8rem;
+  margin: 0.3rem;
+  border-radius: 0.5rem;
+  background-position: center;
+  background-size: cover;
+  box-shadow: inset 1rem -2rem 2rem 0.1rem #000;
+  position: relative;
+
+  // border: 2px solid red;
+  .title {
+    font-size: 0.8rem;
+    color: #fff;
+    position: absolute;
+    bottom: 0.3rem;
+    left: 0.3rem;
+    text-transform: uppercase;
+  }
+  .picture {
+    width: 4rem;
+  }
+}

@@ -1,0 +1,11 @@
+@mixin page-card($padding: 0.2rem) {
+  border: 2px dotted red;
+  padding: $padding;
+  padding-top: calc(var(--bar-height) + $padding);
+  height: 100vh;
+}
+
+@mixin titles($font-size: 1.2rem) {
+  font-size: $font-size;
+  text-transform: uppercase;
+}
