@@ -4,7 +4,7 @@ import classes from "./MealTypeCard.module.scss";
 interface Props {
   img: string;
   title: string;
-  onClick?: () => void;
+  onClick?: (type: string) => void;
 }
 
 const MealTypeCard: React.FC<Props> = (props) => {
@@ -12,6 +12,7 @@ const MealTypeCard: React.FC<Props> = (props) => {
     <div
       className={classes.div}
       style={{ backgroundImage: `url(${props.img})` }}
+      onClick={() => props.onClick!(props.title)}
     >
       <h1 className={classes.title}>{props.title}</h1>
     </div>

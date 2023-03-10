@@ -1,9 +1,9 @@
 @import "../../styles/mixins.scss";
 
 .main {
-  @include page-card;
+  @include page-card();
   .h1 {
-    @include titles;
+    @include titles();
   }
   .card-container {
     // border: 2px dotted red;
@@ -12,9 +12,6 @@
     display: flex;
     .list {
       display: flex;
-      flex-wrap: nowrap;
-      padding: 0;
-      margin: 0;
       list-style: none;
     }
   }
