@@ -1,13 +1,31 @@
-import React from "react";
+import { useEffect } from "react";
 import classes from "./Results.module.scss";
 import { useParams } from "react-router-dom";
 
-// interface Props {}
-
-// const Main:React.ReactNode<> = (props) => {
 const Results = () => {
   const { id } = useParams();
-  return <main className={classes.main}>{id}</main>;
+
+  useEffect(() => {
+    fetch(
+      `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${
+        import.meta.env.VITE_API_KEY
+      }&ingredients=${id}&number=20`
+    )
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        } else {
+          alert("something went wrong");
+        }
+      })
+      .then((res) => console.log(res));
+  }, []);
+
+  return (
+    <main className={classes.main}>
+      <>{id}</>
+    </main>
+  );
 };
 
 export default Results;

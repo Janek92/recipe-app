@@ -2,6 +2,7 @@ import classes from "./SearchBar.module.scss";
 import React, { useRef } from "react";
 import { BsArrowLeft } from "react-icons/bs";
 import ButtonControl from "../UI/ButtonControl";
+import { useNavigate } from "react-router-dom";
 
 interface Props {
   onCloseInput: () => void;
@@ -9,6 +10,7 @@ interface Props {
 
 const SearchBar: React.FC<Props> = (props) => {
   const inputRef = useRef<HTMLInputElement>(null);
+  const navigate = useNavigate();
 
   const hideInputHandler = () => {
     props.onCloseInput();
@@ -17,10 +19,11 @@ const SearchBar: React.FC<Props> = (props) => {
   const submitHandler = (e: React.FormEvent) => {
     e.preventDefault();
     const ingredients = inputRef.current!.value;
-    const ingredientsPepared = ingredients.split(",").join(",+");
+    const ingredientsPepared = ingredients.split(/[,\s]+/).join(",+");
     console.log(ingredientsPepared);
     inputRef.current!.value = "";
     hideInputHandler();
+    navigate(`/${ingredientsPepared}`);
   };
 
   return (

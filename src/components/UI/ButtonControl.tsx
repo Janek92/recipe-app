@@ -2,8 +2,8 @@ import React from "react";
 import classes from "./ButtonControl.module.scss";
 
 interface Props {
-  children?: React.ReactNode;
-  onClick?: () => void;
+  children: React.ReactNode;
+  onClick: () => void;
   className?: string;
 }
 

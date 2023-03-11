@@ -4,9 +4,11 @@ import classes from "./MainBar.module.scss";
 import { BsSearch, BsFillHeartFill } from "react-icons/bs";
 import ButtonControl from "../UI/ButtonControl";
 import SearchBar from "./SearchBar";
+import { useNavigate } from "react-router-dom";
 
 const MainBar: React.FC = () => {
   const [showInputSearch, setShowInputSearch] = useState<boolean>(false);
+  const navigate = useNavigate();
 
   const showInputHandler = () => {
     setShowInputSearch((prev) => !prev);
@@ -18,7 +20,10 @@ const MainBar: React.FC = () => {
         <SearchBar onCloseInput={showInputHandler} />
       ) : (
         <>
-          <button className={classes["button-logo"]}>
+          <button
+            onClick={() => navigate("/")}
+            className={classes["button-logo"]}
+          >
             <img className={classes.logo} src={logo}></img>
           </button>
           <div className={classes.menu}>
