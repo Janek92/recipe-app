@@ -20,10 +20,10 @@ const SearchBar: React.FC<Props> = (props) => {
     e.preventDefault();
     const ingredients = inputRef.current!.value;
     const ingredientsPepared = ingredients.split(/[,\s]+/).join(",+");
-    console.log(ingredientsPepared);
     inputRef.current!.value = "";
     hideInputHandler();
-    navigate(`/${ingredientsPepared}`);
+    const state: string = "ingredients";
+    navigate(`/${ingredientsPepared}`, { state });
   };
 
   return (

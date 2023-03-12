@@ -1,6 +1,7 @@
 @import "../../styles/mixins.scss";
 
 .main {
+  --expander-dimensions: 2.5rem;
   @include page-card();
   .h1 {
     @include titles();
@@ -14,5 +15,26 @@
       display: flex;
       list-style: none;
     }
+  }
+  .expander {
+    position: fixed;
+    top: var(-bar-height);
+    left: 0;
+    width: var(--expander-dimensions);
+    height: var(--expander-dimensions);
+  }
+  .menu {
+    position: absolute;
+    top: var(--expander-dimensions);
+    background-color: #fff;
+    border-radius: 0.4rem;
+    left: 0;
+    width: 100%;
+    transform: scaleY(0%);
+    transform-origin: top;
+    transition: 0.25s;
+  }
+  .roll-out {
+    transform: scaleY(100%);
   }
 }

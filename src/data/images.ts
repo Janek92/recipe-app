@@ -36,44 +36,63 @@ import vegan from "../assets/diets/vegan_640.jpg";
 import vegetarian from "../assets/diets/vegetarian_640.jpg";
 import whole30 from "../assets/diets/whole_30__640.jpg";
 
+import { GiChickenOven, GiSushis, GiCupcake } from "react-icons/gi";
+
 export const cuisineList = [
-  { img: african, title: "african" },
-  { img: american, title: "american" },
-  { img: british, title: "british" },
-  { img: cajun, title: "cajun" },
-  { img: carribean, title: "carribean" },
-  { img: chinese, title: "chinese" },
-  { img: easternEuropean, title: "eastern european" },
-  { img: european, title: "european" },
-  { img: french, title: "french" },
-  { img: german, title: "german" },
-  { img: indian, title: "indian" },
-  { img: irish, title: "irish" },
-  { img: italian, title: "italian" },
-  { img: japanese, title: "japanese" },
-  { img: jewish, title: "jewish" },
-  { img: korean, title: "korean" },
-  { img: latinAmerian, title: "latin amerian" },
-  { img: mediterranean, title: "mediterranean" },
-  { img: mexican, title: "mexican" },
-  { img: middleEastern, title: "middle eastern" },
-  { img: nordic, title: "nordic" },
-  { img: southern, title: "southern" },
-  { img: spanish, title: "spanish" },
-  { img: thai, title: "thai" },
-  { img: vietnamese, title: "vietnamese" },
+  { img: african, title: "african", type: "cuisine" },
+  { img: american, title: "american", type: "cuisine" },
+  { img: british, title: "british", type: "cuisine" },
+  { img: cajun, title: "cajun", type: "cuisine" },
+  { img: carribean, title: "carribean", type: "cuisine" },
+  { img: chinese, title: "chinese", type: "cuisine" },
+  { img: easternEuropean, title: "eastern european", type: "cuisine" },
+  { img: european, title: "european", type: "cuisine" },
+  { img: french, title: "french", type: "cuisine" },
+  { img: german, title: "german", type: "cuisine" },
+  { img: indian, title: "indian", type: "cuisine" },
+  { img: irish, title: "irish", type: "cuisine" },
+  { img: italian, title: "italian", type: "cuisine" },
+  { img: japanese, title: "japanese", type: "cuisine" },
+  { img: jewish, title: "jewish", type: "cuisine" },
+  { img: korean, title: "korean", type: "cuisine" },
+  { img: latinAmerian, title: "latin amerian", type: "cuisine" },
+  { img: mediterranean, title: "mediterranean", type: "cuisine" },
+  { img: mexican, title: "mexican", type: "cuisine" },
+  { img: middleEastern, title: "middle eastern", type: "cuisine" },
+  { img: nordic, title: "nordic", type: "cuisine" },
+  { img: southern, title: "southern", type: "cuisine" },
+  { img: spanish, title: "spanish", type: "cuisine" },
+  { img: thai, title: "thai", type: "cuisine" },
+  { img: vietnamese, title: "vietnamese", type: "cuisine" },
 ];
 
 export const dietList = [
-  { img: glutenFree, title: "gluten free" },
-  { img: ketogenic, title: "ketogenic" },
-  { img: lactoVegetarian, title: "lacto vegetarian" },
-  { img: lowFodmap, title: "low fodmap" },
-  { img: ovoVegetarian, title: "ovo vegetarian" },
-  { img: paleo, title: "paleo" },
-  { img: pascetarian, title: "pascetarian" },
-  { img: primal, title: "primal" },
-  { img: vegan, title: "vegan" },
-  { img: vegetarian, title: "vegetarian" },
-  { img: whole30, title: "whole 30" },
+  { img: glutenFree, title: "gluten free", type: "diet" },
+  { img: ketogenic, title: "ketogenic", type: "diet" },
+  { img: lactoVegetarian, title: "lacto vegetarian", type: "diet" },
+  { img: lowFodmap, title: "low fodmap", type: "diet" },
+  { img: ovoVegetarian, title: "ovo vegetarian", type: "diet" },
+  { img: paleo, title: "paleo", type: "diet" },
+  { img: pascetarian, title: "pascetarian", type: "diet" },
+  { img: primal, title: "primal", type: "diet" },
+  { img: vegan, title: "vegan", type: "diet" },
+  { img: vegetarian, title: "vegetarian", type: "diet" },
+  { img: whole30, title: "whole 30", type: "diet" },
+];
+
+export const dailyMealList = [
+  { img: GiChickenOven, title: "main course", type: "daily meal" },
+  { img: GiSushis, title: "side dish", type: "daily meal" },
+  { img: GiCupcake, title: "dessert", type: "daily meal" },
+  // { img: , title: "appetizer", type: "daily meal" }
+  // { img: , title: "salad", type: "daily meal" }
+  // { img: , title: "bread", type: "daily meal" }
+  // { img: , title: "breakfast", type: "daily meal" }
+  // { img: , title: "soup", type: "daily meal" }
+  // { img: , title: "beverage", type: "daily meal" }
+  // { img: , title: "sauce", type: "daily meal" }
+  // { img: , title: "marinade", type: "daily meal" }
+  // { img: , title: "fingerfood", type: "daily meal" }
+  // { img: , title: "snack", type: "daily meal" }
+  // { img: , title: "drink", type: "daily meal" }
 ];
