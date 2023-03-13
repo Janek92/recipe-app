@@ -5,7 +5,7 @@ import { cuisineList, dietList, dailyMealList } from "../../data/images";
 import { useNavigate } from "react-router-dom";
 import { Meals } from "../../models/interfaces";
 import ButtonControl from "../UI/ButtonControl";
-import { MdOutlineFreeBreakfast } from "react-icons/md";
+import { MdRestaurantMenu } from "react-icons/md";
 import SmallIcons from "../UI/SmallIcons";
 
 const Main: React.FC = () => {
@@ -44,15 +44,21 @@ const Main: React.FC = () => {
   return (
     <main className={classes.main}>
       <ButtonControl
-        className={classes.expander}
+        className={
+          !rolledOut
+            ? classes.expander
+            : `${classes.expander} ${classes["--clicked"]}`
+        }
         onClick={() => {
           setRolledOut((prev) => !prev);
         }}
       >
-        <MdOutlineFreeBreakfast />
+        <MdRestaurantMenu />
         <ul
           className={
-            !rolledOut ? classes.menu : `${classes.menu} ${classes["roll-out"]}`
+            !rolledOut
+              ? classes.menu
+              : `${classes.menu} ${classes["--roll-out"]}`
           }
           ref={menuRef}
         >
@@ -65,7 +71,8 @@ const Main: React.FC = () => {
                 key={Math.random().toFixed(7)}
               >
                 <el.img />
-                <p>{el.title}</p>
+                {el.title}
+                {/* <p>{el.title}</p> */}
               </SmallIcons>
             );
           })}

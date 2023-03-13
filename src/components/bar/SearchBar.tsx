@@ -28,7 +28,7 @@ const SearchBar: React.FC<Props> = (props) => {
 
   return (
     <div className={classes.div}>
-      <ButtonControl onClick={hideInputHandler}>
+      <ButtonControl className={classes.return} onClick={hideInputHandler}>
         <BsArrowLeft />
       </ButtonControl>
       <form onSubmit={submitHandler} className={classes.form}>

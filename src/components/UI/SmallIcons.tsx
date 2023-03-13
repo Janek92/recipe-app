@@ -11,7 +11,7 @@ const SmallIcons: React.FC<Props> = (props) => {
       className={classes.li}
       onClick={() => props.onClick!(props.title, props.type)}
     >
-      {props.children}
+      <p>{props.children}</p>
     </li>
   );
 };

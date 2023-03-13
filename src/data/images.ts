@@ -36,7 +36,14 @@ import vegan from "../assets/diets/vegan_640.jpg";
 import vegetarian from "../assets/diets/vegetarian_640.jpg";
 import whole30 from "../assets/diets/whole_30__640.jpg";
 
-import { GiChickenOven, GiSushis, GiCupcake } from "react-icons/gi";
+import {
+  GiChickenOven,
+  GiCookingPot,
+  GiCupcake,
+  GiSushis,
+  GiMartini,
+} from "react-icons/gi";
+import { MdFreeBreakfast, MdFastfood } from "react-icons/md";
 
 export const cuisineList = [
   { img: african, title: "african", type: "cuisine" },
@@ -81,18 +88,19 @@ export const dietList = [
 ];
 
 export const dailyMealList = [
+  { img: MdFreeBreakfast, title: "breakfast", type: "daily meal" },
+  { img: GiSushis, title: "appetizer", type: "daily meal" },
   { img: GiChickenOven, title: "main course", type: "daily meal" },
-  { img: GiSushis, title: "side dish", type: "daily meal" },
+  { img: GiCookingPot, title: "soup", type: "daily meal" },
   { img: GiCupcake, title: "dessert", type: "daily meal" },
-  // { img: , title: "appetizer", type: "daily meal" }
-  // { img: , title: "salad", type: "daily meal" }
-  // { img: , title: "bread", type: "daily meal" }
-  // { img: , title: "breakfast", type: "daily meal" }
-  // { img: , title: "soup", type: "daily meal" }
+  { img: MdFastfood, title: "snack", type: "daily meal" },
+  { img: GiMartini, title: "drink", type: "daily meal" },
+  // { img: GiOpenedFoodCan, title: "side dish", type: "daily meal" },
+  // { img: TbSalad, title: "salad", type: "daily meal" },
+  // { img: TbBread, title: "bread", type: "daily meal" },
+
   // { img: , title: "beverage", type: "daily meal" }
   // { img: , title: "sauce", type: "daily meal" }
   // { img: , title: "marinade", type: "daily meal" }
   // { img: , title: "fingerfood", type: "daily meal" }
-  // { img: , title: "snack", type: "daily meal" }
-  // { img: , title: "drink", type: "daily meal" }
 ];

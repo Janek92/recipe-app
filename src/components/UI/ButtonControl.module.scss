@@ -2,7 +2,7 @@
   background-color: transparent;
   border: none;
   box-shadow: 0 0 2px 1px var(--basic-color);
-  border-radius: 0.3rem;
+  border-radius: var(--btn-ctrl-radius);
   margin: 0.3rem;
   padding: 0.2rem;
   transition: all 0.2s;

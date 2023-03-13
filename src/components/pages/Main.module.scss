@@ -1,7 +1,7 @@
 @import "../../styles/mixins.scss";
 
 .main {
-  --expander-dimensions: 2.5rem;
+  --expander-dimensions: 3rem;
   @include page-card();
   .h1 {
     @include titles();
@@ -19,22 +19,63 @@
   .expander {
     position: fixed;
     top: var(-bar-height);
-    left: 0;
+    margin: 0.1rem;
+    left: 0.2rem;
+    font-size: 2.3rem;
     width: var(--expander-dimensions);
     height: var(--expander-dimensions);
+    z-index: 1;
+    background-color: #fff;
+    &:active {
+      transform: scale(1);
+    }
   }
   .menu {
+    display: none;
     position: absolute;
-    top: var(--expander-dimensions);
+    top: calc(var(--expander-dimensions) + 2px);
     background-color: #fff;
-    border-radius: 0.4rem;
     left: 0;
     width: 100%;
     transform: scaleY(0%);
     transform-origin: top;
     transition: 0.25s;
+    box-shadow: 0 0 2px 1px var(--basic-color);
+    border-bottom-left-radius: var(--btn-ctrl-radius);
+    border-bottom-right-radius: var(--btn-ctrl-radius);
+    list-style: none;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    opacity: 0;
+
+    @media (orientation: landscape) {
+      height: 100%;
+      width: auto;
+      left: 100%;
+      top: 0;
+      flex-wrap: nowrap;
+      border-top-right-radius: var(--btn-ctrl-radius);
+      border-bottom-left-radius: 0;
+      transform: scaleX(0%);
+      transform-origin: left;
+      display: flex;
+      align-items: center;
+    }
   }
-  .roll-out {
+  .--roll-out {
+    opacity: 1;
     transform: scaleY(100%);
+    @media (orientation: landscape) {
+      transform: scaleX(100%);
+    }
+  }
+  .--clicked {
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    @media (orientation: landscape) {
+      border-bottom-left-radius: var(--btn-ctrl-radius);
+      border-top-right-radius: 0px;
+    }
   }
 }
