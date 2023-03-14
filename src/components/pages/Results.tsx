@@ -7,21 +7,26 @@ import useFetchMeals from "../../hooks/useFetchMeals";
 const Results: React.FC = () => {
   const { id } = useParams();
   const location = useLocation();
-  // const {data, loading, error} = useFetchMeals(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=${
-  //   import.meta.env.VITE_API_KEY
-  // }&ingredients=${id}&number=20`);
+  // let title = id!.replace(/,|\+|\s/g, " ");
 
-  // `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${
-  //       import.meta.env.VITE_API_KEY
-  //     }&ingredients=${paramsId}&number=20`
+  const { data, loading, error } = useFetchMeals(
+    `https://api.spoonacular.com/recipes/${
+      location.state
+    }=${id}&number=20&apiKey=${import.meta.env.VITE_API_KEY}`
+  );
 
   useEffect(() => {
-    console.log(`rodzaj: ${location.state}, danie:  ${id}`);
-  }, []);
+    if (data === undefined) return;
+    if (data!.hasOwnProperty("results")) {
+      console.log("data nie pochodzi od składników");
+    } else {
+      console.log("data od składników");
+    }
+  }, [data]);
 
   return (
     <main className={classes.main}>
-      <>{id}</>
+      <h1 className={classes.h1}>{id}</h1>
     </main>
   );
 };

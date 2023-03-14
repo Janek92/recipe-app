@@ -88,13 +88,13 @@ export const dietList = [
 ];
 
 export const dailyMealList = [
-  { img: MdFreeBreakfast, title: "breakfast", type: "daily meal" },
-  { img: GiSushis, title: "appetizer", type: "daily meal" },
-  { img: GiChickenOven, title: "main course", type: "daily meal" },
-  { img: GiCookingPot, title: "soup", type: "daily meal" },
-  { img: GiCupcake, title: "dessert", type: "daily meal" },
-  { img: MdFastfood, title: "snack", type: "daily meal" },
-  { img: GiMartini, title: "drink", type: "daily meal" },
+  { img: MdFreeBreakfast, title: "breakfast", type: "type" },
+  { img: GiSushis, title: "appetizer", type: "type" },
+  { img: GiChickenOven, title: "main course", type: "type" },
+  { img: GiCookingPot, title: "soup", type: "type" },
+  { img: GiCupcake, title: "dessert", type: "type" },
+  { img: MdFastfood, title: "snack", type: "type" },
+  { img: GiMartini, title: "drink", type: "type" },
   // { img: GiOpenedFoodCan, title: "side dish", type: "daily meal" },
   // { img: TbSalad, title: "salad", type: "daily meal" },
   // { img: TbBread, title: "bread", type: "daily meal" },

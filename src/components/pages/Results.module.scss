@@ -1,4 +1,9 @@
 @import "../../styles/mixins.scss";
 .main {
   @include page-card();
+  .h1 {
+    @include titles(1.1rem, 500, left);
+    padding: 1rem;
+    margin: 0;
+  }
 }
