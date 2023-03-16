@@ -1,0 +1,20 @@
+@keyframes rotating {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.aside {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  & svg:nth-of-type(1) {
+    color: var(--basic-color);
+    font-size: 6rem;
+    transform-origin: center;
+    position: relative;
+    animation: rotating 0.6s steps(8, end) infinite;
+  }
+}

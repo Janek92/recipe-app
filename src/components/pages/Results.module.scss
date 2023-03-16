@@ -1,9 +1,13 @@
 @import "../../styles/mixins.scss";
 .main {
   @include page-card();
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
   .h1 {
     @include titles(1.1rem, 500, left);
     padding: 1rem;
     margin: 0;
+    flex-basis: 100%;
   }
 }

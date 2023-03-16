@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { IngredientsData } from "../models/ingredientsData";
-import { TypesData } from "../models/typesData";
+import { Result } from "../models/typesData";
 
 const useFetchMeals = (url: string) => {
-  const [data, setData] = useState<IngredientsData | TypesData>();
+  const [dataTypes, setDataTypes] = useState<Result[]>();
+  const [dataIngredients, setDataIngredients] = useState<IngredientsData[]>();
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<Error | string>();
 
@@ -17,7 +18,13 @@ const useFetchMeals = (url: string) => {
           setError("An error occured while connection");
         }
       })
-      .then((res: IngredientsData | TypesData) => setData(res))
+      .then((res: any) => {
+        if (res.hasOwnProperty("results")) {
+          setDataTypes(res.results);
+        } else {
+          setDataIngredients(res);
+        }
+      })
       .catch((err: Error) => {
         console.log(err);
         setError("Data fetch failed");
@@ -25,7 +32,7 @@ const useFetchMeals = (url: string) => {
       .finally(() => setLoading(false));
   }, [url]);
 
-  return { data, loading, error };
+  return { dataTypes, dataIngredients, loading, error };
 };
 
 export default useFetchMeals;

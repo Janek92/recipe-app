@@ -1,4 +1,4 @@
-interface Result {
+export interface Result {
   id: number;
   image: string;
   imageType: string;
