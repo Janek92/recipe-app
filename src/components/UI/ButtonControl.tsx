@@ -3,7 +3,7 @@ import classes from "./ButtonControl.module.scss";
 
 interface Props {
   children: React.ReactNode;
-  onClick?: () => void;
+  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   className?: string;
 }
 
