@@ -33,7 +33,11 @@ const SearchBar: React.FC<Props> = (props) => {
         <BsArrowLeft />
       </ButtonControl>
       <form onSubmit={submitHandler} className={classes.form}>
-        <input ref={inputRef} className={classes.input} />
+        <input
+          ref={inputRef}
+          placeholder="type your ingredients"
+          className={classes.input}
+        />
       </form>
     </div>
   );

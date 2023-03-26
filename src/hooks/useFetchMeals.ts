@@ -5,8 +5,10 @@ import { Result } from "../models/typesData";
 const useFetchMeals = (url: string) => {
   const [dataTypes, setDataTypes] = useState<Result[]>();
   const [dataIngredients, setDataIngredients] = useState<IngredientsData[]>();
+  const [dataRecipeDetails, setDataRecipeDetails] = useState<any>();
+
   const [loading, setLoading] = useState<boolean>(false);
-  const [error, setError] = useState<Error | string>();
+  const [error, setError] = useState<string>();
 
   useEffect(() => {
     setLoading(true);
@@ -21,6 +23,8 @@ const useFetchMeals = (url: string) => {
       .then((res: any) => {
         if (res.hasOwnProperty("results")) {
           setDataTypes(res.results);
+        } else if (res.hasOwnProperty("analyzedInstructions")) {
+          setDataRecipeDetails(res);
         } else {
           setDataIngredients(res);
         }
@@ -32,7 +36,7 @@ const useFetchMeals = (url: string) => {
       .finally(() => setLoading(false));
   }, [url]);
 
-  return { dataTypes, dataIngredients, loading, error };
+  return { dataTypes, dataIngredients, dataRecipeDetails, loading, error };
 };
 
 export default useFetchMeals;

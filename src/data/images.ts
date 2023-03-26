@@ -44,6 +44,7 @@ import {
   GiMartini,
 } from "react-icons/gi";
 import { MdFreeBreakfast, MdFastfood } from "react-icons/md";
+import { CiGlass } from "react-icons/ci";
 
 export const cuisineList = [
   { img: african, title: "african", type: "cuisine" },
@@ -94,7 +95,7 @@ export const dailyMealList = [
   { img: GiCookingPot, title: "soup", type: "type" },
   { img: GiCupcake, title: "dessert", type: "type" },
   { img: MdFastfood, title: "snack", type: "type" },
-  { img: GiMartini, title: "drink", type: "type" },
+  { img: CiGlass, title: "drink", type: "type" },
   // { img: GiOpenedFoodCan, title: "side dish", type: "daily meal" },
   // { img: TbSalad, title: "salad", type: "daily meal" },
   // { img: TbBread, title: "bread", type: "daily meal" },

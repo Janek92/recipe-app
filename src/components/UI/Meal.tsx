@@ -16,6 +16,7 @@ const Meal: React.FC<Props> = (props) => {
   const liked = (event: React.MouseEvent<HTMLButtonElement>) => {
     setFavourite((prev) => !prev);
     event.stopPropagation();
+    console.log(props.id, favourite);
   };
 
   return (

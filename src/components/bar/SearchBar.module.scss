@@ -29,6 +29,10 @@
       height: 100%;
       font-size: 1rem;
       border: 2px solid var(--basic-color);
+      &:focus::placeholder {
+        transform: translateX(-100%);
+        transition: 0.4s;
+      }
     }
   }
 }

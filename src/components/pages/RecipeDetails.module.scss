@@ -1,0 +1,72 @@
+@import "../../styles/mixins.scss";
+.sub-title {
+  font-size: 1rem;
+  width: 100%;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  & svg {
+    font-size: 1.3rem;
+    margin: 0 0.2rem;
+  }
+}
+.segment {
+  margin-top: 0.3rem;
+}
+.div {
+  @include page-card();
+  display: flex;
+  flex-wrap: wrap;
+  .h1 {
+    @include titles(1.1rem, 600, left);
+  }
+  .img {
+    width: 100%;
+    margin: 0 auto;
+  }
+  .ready-time {
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    color: #aaa;
+    padding: 0.1rem;
+    & svg:nth-of-type(2) {
+      margin-left: 1rem;
+    }
+    .value {
+      font-size: 0.9rem;
+    }
+  }
+  .ingredients {
+    background-color: #ffc2c2;
+    width: 100%;
+    .ul {
+      list-style: circle;
+      padding: 0.2rem;
+      font-size: 0.8rem;
+      margin: 0 0.9rem;
+    }
+  }
+  .--not-missing {
+    background-color: inherit;
+    background-color: var(--basic-color);
+  }
+  .instructions {
+    font-size: 0.9rem;
+    width: 100%;
+    p {
+      max-width: 100%;
+    }
+    img {
+      max-width: 100%;
+    }
+    ol {
+      margin: 0 1rem;
+      list-style: decimal;
+      li {
+        margin-bottom: 0.3rem;
+      }
+    }
+  }
+}
