@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { IngredientsData } from "../models/ingredientsData";
+import { RecipeData } from "../models/recipeData";
 import { Result } from "../models/typesData";
 
 const useFetchMeals = (url: string) => {
   const [dataTypes, setDataTypes] = useState<Result[]>();
   const [dataIngredients, setDataIngredients] = useState<IngredientsData[]>();
-  const [dataRecipeDetails, setDataRecipeDetails] = useState<any>();
+  const [dataRecipeDetails, setDataRecipeDetails] = useState<RecipeData>();
 
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string>();
@@ -24,7 +25,15 @@ const useFetchMeals = (url: string) => {
         if (res.hasOwnProperty("results")) {
           setDataTypes(res.results);
         } else if (res.hasOwnProperty("analyzedInstructions")) {
-          setDataRecipeDetails(res);
+          setDataRecipeDetails({
+            instructions: res.instructions,
+            sourceUrl: res.sourceUrl,
+            title: res.title,
+            image: res.image,
+            readyInMinutes: res.readyInMinutes,
+            servings: res.servings,
+            extendedIngredients: res.extendedIngredients,
+          });
         } else {
           setDataIngredients(res);
         }

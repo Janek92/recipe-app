@@ -95,7 +95,7 @@ const RecipeDetails: React.FC = () => {
             <ul className={classes.ul}>
               {dataRecipeDetails.extendedIngredients.map(
                 (ingredient: Ingredient) => (
-                  <li key={Math.random().toFixed(7)}>{ingredient.name}</li>
+                  <li key={Math.random().toFixed(7)}>{ingredient.original}</li>
                 )
               )}
             </ul>
