@@ -9,14 +9,24 @@ interface Props {
   title: string;
   img: string;
   onClick: (id: number, missed?: string[]) => void;
+  isLiked: () => boolean;
 }
 
 const Meal: React.FC<Props> = (props) => {
-  const [favourite, setFavourite] = useState<boolean>(false);
-  const liked = (event: React.MouseEvent<HTMLButtonElement>) => {
+  const [favourite, setFavourite] = useState<boolean>(props.isLiked);
+
+  const addFavouriteToLS = (event: React.MouseEvent<HTMLButtonElement>) => {
     setFavourite((prev) => !prev);
+    // console.log(props.id, props.title, props.img, favourite);
+    if (favourite === false) {
+      localStorage.setItem(
+        props.title,
+        JSON.stringify({ id: props.id, title: props.title, img: props.img })
+      );
+    } else {
+      localStorage.removeItem(props.title);
+    }
     event.stopPropagation();
-    console.log(props.id, favourite);
   };
 
   return (
@@ -24,7 +34,7 @@ const Meal: React.FC<Props> = (props) => {
       onClick={() => props.onClick(props.id, props.missed)}
       className={classes.div}
     >
-      <ButtonControl onClick={liked} className={classes.button}>
+      <ButtonControl onClick={addFavouriteToLS} className={classes.button}>
         {favourite ? <AiFillHeart /> : <AiOutlineHeart />}
       </ButtonControl>
       <img className={classes.img} src={props.img} />

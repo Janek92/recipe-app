@@ -32,6 +32,14 @@ const Results: React.FC = () => {
     const state: RecipeState = { id, missed };
     navigate(`/recipe`, { state });
   }
+  function checkIfIsLiked(name: string) {
+    //2.Tutaj warunek czy titles z local storage.includes(name)
+    if (name.length > 22) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 
   function view() {
     if (!dataIngredients && !dataTypes) return;
@@ -50,6 +58,7 @@ const Results: React.FC = () => {
             title={meal.title}
             img={meal.image}
             onClick={select}
+            isLiked={() => checkIfIsLiked(meal.title)}
           />
         );
       });
@@ -61,6 +70,7 @@ const Results: React.FC = () => {
           title={meal.title}
           img={meal.image}
           onClick={select}
+          isLiked={() => checkIfIsLiked(meal.title)}
         />
       ));
     }
