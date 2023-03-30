@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import classes from "./Meal.module.scss";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import ButtonControl from "./ButtonControl";
+import { LocalStorageKeyValue } from "../../models/localStorageKeyValue";
 
 interface Props {
   id: number;
@@ -19,10 +20,12 @@ const Meal: React.FC<Props> = (props) => {
     setFavourite((prev) => !prev);
     // console.log(props.id, props.title, props.img, favourite);
     if (favourite === false) {
-      localStorage.setItem(
-        props.title,
-        JSON.stringify({ id: props.id, title: props.title, img: props.img })
-      );
+      const keyValue: LocalStorageKeyValue = {
+        id: props.id,
+        title: props.title,
+        img: props.img,
+      };
+      localStorage.setItem(props.title, JSON.stringify(keyValue));
     } else {
       localStorage.removeItem(props.title);
     }
@@ -35,7 +38,11 @@ const Meal: React.FC<Props> = (props) => {
       className={classes.div}
     >
       <ButtonControl onClick={addFavouriteToLS} className={classes.button}>
-        {favourite ? <AiFillHeart /> : <AiOutlineHeart />}
+        {favourite ? (
+          <AiFillHeart style={{ color: "red" }} />
+        ) : (
+          <AiOutlineHeart />
+        )}
       </ButtonControl>
       <img className={classes.img} src={props.img} />
       <h1 className={classes.h1}>{props.title}</h1>

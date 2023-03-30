@@ -6,7 +6,9 @@ import { useNavigate } from "react-router-dom";
 import useFetchMeals from "../../hooks/useFetchMeals";
 import Spinner from "../UI/Spinner";
 import Meal from "../UI/Meal";
+import useLiked from "../../hooks/useLiked";
 
+//PRZENIEŚĆ:
 interface RecipeState {
   id: number;
   missed?: string[];
@@ -16,6 +18,8 @@ const Results: React.FC = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const location = useLocation();
+  const { keys, keysName } = useLiked();
+
   let title: string;
   id?.includes(",")
     ? (title = `Results for: ${id.replaceAll("+", " ")}`)
@@ -26,15 +30,15 @@ const Results: React.FC = () => {
       location.state
     }=${id}&number=20&apiKey=${import.meta.env.VITE_API_KEY}&ignorePantry=false`
   );
-
+  //PRZENIEŚĆ:
   function select(id: number, missed?: string[]) {
     console.log(id);
     const state: RecipeState = { id, missed };
     navigate(`/recipe`, { state });
   }
+  //PRZENIEŚĆ:
   function checkIfIsLiked(name: string) {
-    //2.Tutaj warunek czy titles z local storage.includes(name)
-    if (name.length > 22) {
+    if (keysName.includes(name)) {
       return true;
     } else {
       return false;

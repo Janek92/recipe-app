@@ -1,0 +1,13 @@
+@import "../../styles/mixins.scss";
+.favourites {
+  @include page-card();
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  .h1 {
+    @include titles();
+    padding: 1rem;
+    margin: 0;
+    flex-basis: 100%;
+  }
+}

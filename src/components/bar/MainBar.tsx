@@ -30,7 +30,7 @@ const MainBar: React.FC = () => {
             <ButtonControl onClick={showInputHandler}>
               <BsSearch />
             </ButtonControl>
-            <ButtonControl>
+            <ButtonControl onClick={() => navigate("/favourites")}>
               <BsFillHeartFill />
             </ButtonControl>
           </div>
