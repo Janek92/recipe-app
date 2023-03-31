@@ -6,9 +6,9 @@ const useLiked = () => {
   const [keysName, setKeysName] = useState<string[]>([]);
 
   useEffect(() => {
-    const keys = Object.keys(localStorage);
-    for (const key in keys) {
-      const keyName = keys[key];
+    const keysList = Object.keys(localStorage);
+    for (const key in keysList) {
+      const keyName = keysList[key];
       const value: LocalStorageKeyValue = JSON.parse(
         localStorage.getItem(keyName) || ""
       );

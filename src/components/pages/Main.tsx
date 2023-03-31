@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import classes from "./Main.module.scss";
 import MealTypeCard from "../UI/MealTypeCard";
-import { cuisineList, dietList, dailyMealList } from "../../data/images";
+import { cuisineList, dietList, dailyMealList } from "../../utils/images";
 import { useNavigate } from "react-router-dom";
 import { Meals } from "../../models/meals";
 import ButtonControl from "../UI/ButtonControl";

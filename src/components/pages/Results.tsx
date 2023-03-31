@@ -7,18 +7,15 @@ import useFetchMeals from "../../hooks/useFetchMeals";
 import Spinner from "../UI/Spinner";
 import Meal from "../UI/Meal";
 import useLiked from "../../hooks/useLiked";
-
-//PRZENIEŚĆ:
-interface RecipeState {
-  id: number;
-  missed?: string[];
-}
+import { checkIfIsLiked } from "../../utils/reusableFunctions";
+import useSelect from "../../hooks/useSelect";
 
 const Results: React.FC = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const location = useLocation();
   const { keys, keysName } = useLiked();
+  const { select } = useSelect();
 
   let title: string;
   id?.includes(",")
@@ -30,20 +27,6 @@ const Results: React.FC = () => {
       location.state
     }=${id}&number=20&apiKey=${import.meta.env.VITE_API_KEY}&ignorePantry=false`
   );
-  //PRZENIEŚĆ:
-  function select(id: number, missed?: string[]) {
-    console.log(id);
-    const state: RecipeState = { id, missed };
-    navigate(`/recipe`, { state });
-  }
-  //PRZENIEŚĆ:
-  function checkIfIsLiked(name: string) {
-    if (keysName.includes(name)) {
-      return true;
-    } else {
-      return false;
-    }
-  }
 
   function view() {
     if (!dataIngredients && !dataTypes) return;
@@ -61,8 +44,8 @@ const Results: React.FC = () => {
             key={Math.random().toFixed(7)}
             title={meal.title}
             img={meal.image}
-            onClick={select}
-            isLiked={() => checkIfIsLiked(meal.title)}
+            onClick={() => select(meal.id, missedIngredients)}
+            isLiked={() => checkIfIsLiked(meal.title, keysName)}
           />
         );
       });
@@ -74,7 +57,7 @@ const Results: React.FC = () => {
           title={meal.title}
           img={meal.image}
           onClick={select}
-          isLiked={() => checkIfIsLiked(meal.title)}
+          isLiked={() => checkIfIsLiked(meal.title, keysName)}
         />
       ));
     }
