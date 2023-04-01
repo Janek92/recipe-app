@@ -1,7 +1,8 @@
 import React from "react";
-import classes from "./MealTypeCard.module.scss";
-import { Meals } from "../../models/meals";
 
+import { Meals } from "~/models/meals";
+
+import classes from "./MealTypeCard.module.scss";
 interface Props extends Meals {
   onClick?: (sort: string, type: string) => void;
 }

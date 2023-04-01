@@ -1,4 +1,5 @@
 import { ImSpinner } from "react-icons/im";
+
 import classes from "./Spinner.module.scss";
 
 const Spinner = () => {

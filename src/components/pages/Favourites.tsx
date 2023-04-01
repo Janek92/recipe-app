@@ -1,28 +1,30 @@
 import React, { useEffect } from "react";
-import classes from "./Favourites.module.scss";
-import Meal from "../UI/Meal";
 import { useNavigate } from "react-router-dom";
-import useLiked from "../../hooks/useLiked";
-import { checkIfIsLiked } from "../../utils/reusableFunctions";
-import useSelect from "../../hooks/useSelect";
+
+import { checkIfIsLiked } from "~/utils/reusableFunctions";
+import useLiked from "~/hooks/useLiked";
+import useSelect from "~/hooks/useSelect";
+import Meal from "~/components/UI/Meal";
+
+import classes from "./Favourites.module.scss";
 
 const Favourites: React.FC = () => {
   const navigate = useNavigate();
   const { keys, keysName } = useLiked();
   const { select } = useSelect();
 
-  useEffect(() => {
-    if (keys.length === 0) return;
-    for (const key in keys) {
-      console.log(keys[key]);
-    }
-    for (const key in keysName) {
-      console.log(keysName[key]);
-    }
-  }, [keys]);
+  // useEffect(() => {
+  //   if (keys.length === 0) return;
+  //   for (const key in keys) {
+  //     console.log(keys[key]);
+  //   }
+  //   for (const key in keysName) {
+  //     console.log(keysName[key]);
+  //   }
+  // }, [keys]);
 
   return (
-    <div className={classes.favourites}>
+    <div className={classes.div}>
       <h1 className={classes.h1}>Favourites</h1>
       {keys.map((key) => {
         return (

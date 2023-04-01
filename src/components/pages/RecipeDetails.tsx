@@ -1,31 +1,27 @@
-import React, { useEffect, useState } from "react";
-import classes from "./RecipeDetails.module.scss";
+import React from "react";
 import { useLocation } from "react-router-dom";
-import Spinner from "../UI/Spinner";
-import useFetchMeals from "../../hooks/useFetchMeals";
+import { BsPeople, BsCardChecklist } from "react-icons/bs";
 import {
   AiOutlineClockCircle,
   AiOutlineExclamationCircle,
   AiOutlineOrderedList,
 } from "react-icons/ai";
-import { BsPeople, BsCardChecklist } from "react-icons/bs";
-import { Ingredient } from "../../models/recipeData";
+
+import { Ingredient } from "~/models/recipeData";
+import useFetchMeals from "~/hooks/useFetchMeals";
+import Spinner from "~/components/UI/Spinner";
+
+import classes from "./RecipeDetails.module.scss";
 
 const RecipeDetails: React.FC = () => {
   const location = useLocation();
   const { id, missed } = location.state;
-  console.log(id);
+
   const { dataRecipeDetails, loading, error } = useFetchMeals(
     `https://api.spoonacular.com/recipes/${id}/information?apiKey=${
       import.meta.env.VITE_API_KEY
     }`
   );
-
-  useEffect(() => {
-    if (dataRecipeDetails === undefined) return;
-
-    console.log(dataRecipeDetails);
-  }, [dataRecipeDetails]);
 
   function myInstructions() {
     if (!dataRecipeDetails) return;

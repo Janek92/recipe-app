@@ -1,20 +1,20 @@
 import React from "react";
+import { useParams, useLocation, useNavigate } from "react-router-dom";
+
+import { checkIfIsLiked } from "~/utils/reusableFunctions";
+import useFetchMeals from "~/hooks/useFetchMeals";
+import useLiked from "~/hooks/useLiked";
+import useSelect from "~/hooks/useSelect";
+import Spinner from "~/components/UI/Spinner";
+import Meal from "~/components/UI/Meal";
+
 import classes from "./Results.module.scss";
-import { useParams } from "react-router-dom";
-import { useLocation } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
-import useFetchMeals from "../../hooks/useFetchMeals";
-import Spinner from "../UI/Spinner";
-import Meal from "../UI/Meal";
-import useLiked from "../../hooks/useLiked";
-import { checkIfIsLiked } from "../../utils/reusableFunctions";
-import useSelect from "../../hooks/useSelect";
 
 const Results: React.FC = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const location = useLocation();
-  const { keys, keysName } = useLiked();
+  const { keysName } = useLiked();
   const { select } = useSelect();
 
   let title: string;
@@ -64,12 +64,12 @@ const Results: React.FC = () => {
   }
 
   return (
-    <main className={classes.main}>
+    <div className={classes.div}>
       <>
         <h1 className={classes.h1}>{title}</h1>
         {loading ? <Spinner /> : view()}
       </>
-    </main>
+    </div>
   );
 };
 

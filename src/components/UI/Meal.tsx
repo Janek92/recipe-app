@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import classes from "./Meal.module.scss";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
+
+import { LocalStorageKeyValue } from "~/models/localStorageKeyValue";
 import ButtonControl from "./ButtonControl";
-import { LocalStorageKeyValue } from "../../models/localStorageKeyValue";
+
+import classes from "./Meal.module.scss";
 
 interface Props {
   id: number;
@@ -16,9 +18,7 @@ interface Props {
 const Meal: React.FC<Props> = (props) => {
   const [favourite, setFavourite] = useState<boolean>(props.isLiked);
 
-  const addFavouriteToLS = (event: React.MouseEvent<HTMLButtonElement>) => {
-    setFavourite((prev) => !prev);
-    // console.log(props.id, props.title, props.img, favourite);
+  function addFavouriteToLS(event: React.MouseEvent<HTMLButtonElement>) {
     if (favourite === false) {
       const keyValue: LocalStorageKeyValue = {
         id: props.id,
@@ -29,8 +29,9 @@ const Meal: React.FC<Props> = (props) => {
     } else {
       localStorage.removeItem(props.title);
     }
+    setFavourite((prev) => !prev);
     event.stopPropagation();
-  };
+  }
 
   return (
     <div

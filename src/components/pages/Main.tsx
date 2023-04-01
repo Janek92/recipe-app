@@ -1,25 +1,26 @@
 import React, { useRef, useState } from "react";
-import classes from "./Main.module.scss";
-import MealTypeCard from "../UI/MealTypeCard";
-import { cuisineList, dietList, dailyMealList } from "../../utils/images";
 import { useNavigate } from "react-router-dom";
-import { Meals } from "../../models/meals";
-import ButtonControl from "../UI/ButtonControl";
 import { MdRestaurantMenu } from "react-icons/md";
-import SmallIcons from "../UI/SmallIcons";
+
+import { Meals } from "~/models/meals";
+import { cuisineList, dietList, dailyMealList } from "~/utils/images";
+import MealTypeCard from "~/components/UI/MealTypeCard";
+import ButtonControl from "~/components/UI/ButtonControl";
+import SmallIcons from "~/components/UI/SmallIcons";
+
+import classes from "./Main.module.scss";
 
 const Main: React.FC = () => {
   const navigate = useNavigate();
   const menuRef = useRef<HTMLUListElement>(null);
   const [rolledOut, setRolledOut] = useState<boolean>(false);
 
-  const clickHandler = (sort: string, type: string) => {
-    // const state = type;
+  function clickHandler(sort: string, type: string) {
     const state = `complexSearch?${type}`;
     navigate(`/${sort}`, { state });
-  };
+  }
 
-  const mealsTypeSlider = (title: string, mealsTypeList: Meals[]) => {
+  function mealsTypeSlider(title: string, mealsTypeList: Meals[]) {
     return (
       <>
         <h1 className={classes.h1}>{title}</h1>
@@ -40,7 +41,7 @@ const Main: React.FC = () => {
         </div>
       </>
     );
-  };
+  }
 
   return (
     <main className={classes.main}>
@@ -73,7 +74,6 @@ const Main: React.FC = () => {
               >
                 <el.img />
                 {el.title}
-                {/* <p>{el.title}</p> */}
               </SmallIcons>
             );
           })}

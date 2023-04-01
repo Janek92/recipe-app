@@ -1,21 +1,24 @@
 import React, { useState } from "react";
-import logo from "../../assets/Let's_eat.png";
-import classes from "./MainBar.module.scss";
-import { BsSearch, BsFillHeartFill } from "react-icons/bs";
-import ButtonControl from "../UI/ButtonControl";
-import SearchBar from "./SearchBar";
 import { useNavigate } from "react-router-dom";
+import { BsSearch, BsFillHeartFill } from "react-icons/bs";
+
+import logo from "~/assets/Let's_eat.png";
+import ButtonControl from "~/components/UI/ButtonControl";
+
+import SearchBar from "./SearchBar";
+
+import classes from "./MainBar.module.scss";
 
 const MainBar: React.FC = () => {
   const [showInputSearch, setShowInputSearch] = useState<boolean>(false);
   const navigate = useNavigate();
 
-  const showInputHandler = () => {
+  function showInputHandler() {
     setShowInputSearch((prev) => !prev);
-  };
+  }
 
   return (
-    <nav className={classes["nav-bar"]}>
+    <nav className={classes.nav}>
       {showInputSearch ? (
         <SearchBar onCloseInput={showInputHandler} />
       ) : (

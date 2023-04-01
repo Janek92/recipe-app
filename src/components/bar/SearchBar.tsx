@@ -1,8 +1,10 @@
-import classes from "./SearchBar.module.scss";
 import React, { useRef } from "react";
 import { BsArrowLeft } from "react-icons/bs";
-import ButtonControl from "../UI/ButtonControl";
 import { useNavigate } from "react-router-dom";
+
+import ButtonControl from "~/components/UI/ButtonControl";
+
+import classes from "./SearchBar.module.scss";
 
 interface Props {
   onCloseInput: () => void;
@@ -12,9 +14,9 @@ const SearchBar: React.FC<Props> = (props) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
 
-  const hideInputHandler = () => {
+  function hideInputHandler() {
     props.onCloseInput();
-  };
+  }
 
   const submitHandler = (e: React.FormEvent) => {
     e.preventDefault();
