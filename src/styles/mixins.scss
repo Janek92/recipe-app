@@ -1,4 +1,4 @@
-@mixin page-card($padding: 0.2rem) {
+@mixin page-card($padding: 0rem) {
   padding: $padding;
   padding-top: calc(var(--bar-height) + $padding);
   // min-height: 100vh;

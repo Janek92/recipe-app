@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { MdRestaurantMenu } from "react-icons/md";
+import { BsHandIndex } from "react-icons/bs";
 
 import { Meals } from "~/models/meals";
 import { cuisineList, dietList, dailyMealList } from "~/utils/images";
@@ -26,6 +27,9 @@ const Main: React.FC = () => {
         <h1 className={classes.h1}>{title}</h1>
         <div className={classes["card-container"]}>
           <ul className={classes.list}>
+            <span className={classes.hand}>
+              <BsHandIndex />
+            </span>
             {mealsTypeList.map((image) => {
               return (
                 <MealTypeCard
