@@ -6,10 +6,12 @@ import {
   AiOutlineExclamationCircle,
   AiOutlineOrderedList,
 } from "react-icons/ai";
+import { motion } from "framer-motion";
 
 import { Ingredient } from "~/models/recipeData";
 import useFetchMeals from "~/hooks/useFetchMeals";
 import Spinner from "~/components/UI/Spinner";
+import { slideInOut } from "~/utils/reusableFunctions";
 
 import classes from "./RecipeDetails.module.scss";
 
@@ -103,9 +105,9 @@ const RecipeDetails: React.FC = () => {
   }
 
   return (
-    <div className={classes.div}>
+    <motion.div {...slideInOut} className={classes.div}>
       <>{loading ? <Spinner /> : view()}</>
-    </div>
+    </motion.div>
   );
 };
 

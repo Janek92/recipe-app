@@ -1,5 +1,5 @@
 import { Route, Routes, useLocation } from "react-router-dom";
-import { TransitionGroup, CSSTransition } from "react-transition-group";
+import { AnimatePresence } from "framer-motion";
 
 import Main from "./components/pages/Main";
 import MainBar from "./components/bar/MainBar";
@@ -7,29 +7,19 @@ import Results from "./components/pages/Results";
 import RecipeDetails from "./components/pages/RecipeDetails";
 import Favourites from "./components/pages/Favourites";
 
-import "./styles/App.scss";
-
 function App() {
   const location = useLocation();
   return (
     <>
       <MainBar />
-      {/* <Routes>
-        <Route path="/" element={<Main />} />
-        <Route path="/:id" element={<Results />} />
-        <Route path="/recipe" element={<RecipeDetails />} />
-        <Route path="/favourites" element={<Favourites />} />
-      </Routes> */}
-      <TransitionGroup>
-        <CSSTransition key={location.key} classNames="fade" timeout={300}>
-          <Routes>
-            <Route path="/" element={<Main />} />
-            <Route path="/:id" element={<Results />} />
-            <Route path="/recipe" element={<RecipeDetails />} />
-            <Route path="/favourites" element={<Favourites />} />
-          </Routes>
-        </CSSTransition>
-      </TransitionGroup>
+      <AnimatePresence mode="wait">
+        <Routes location={location} key={location.pathname}>
+          <Route path="/" element={<Main />} />
+          <Route path="/:id" element={<Results />} />
+          <Route path="/recipe" element={<RecipeDetails />} />
+          <Route path="/favourites" element={<Favourites />} />
+        </Routes>
+      </AnimatePresence>
     </>
   );
 }

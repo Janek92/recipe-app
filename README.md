@@ -2,7 +2,7 @@
 
 ![tutorial thumbnail](src/assets/Let's_eat.png)
 
-Small application for searching variety of recipes, using spoonacular API. Allows for searching recipes according to diets, cuisines, meal types and also ingredients which you type in search bar.
+Application for searching variety of recipes, using spoonacular API. Allows for searching recipes according to diets, cuisines, meal types and also ingredients which you type in search bar.
 
 //link to website
 
@@ -22,6 +22,7 @@ Small application for searching variety of recipes, using spoonacular API. Allow
 - routing with React Router
 - custom hooks for repeated actions
 - css modules for styling components
+- page animation by Framer Motion
 - responsive website design
 
 ## Information

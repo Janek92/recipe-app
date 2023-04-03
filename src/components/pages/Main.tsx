@@ -2,12 +2,14 @@ import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { MdRestaurantMenu } from "react-icons/md";
 import { BsHandIndex } from "react-icons/bs";
+import { motion } from "framer-motion";
 
 import { Meals } from "~/models/meals";
 import { cuisineList, dietList, dailyMealList } from "~/utils/images";
 import MealTypeCard from "~/components/UI/MealTypeCard";
 import ButtonControl from "~/components/UI/ButtonControl";
 import SmallIcons from "~/components/UI/SmallIcons";
+import { slideInOut } from "~/utils/reusableFunctions";
 
 import classes from "./Main.module.scss";
 
@@ -48,7 +50,7 @@ const Main: React.FC = () => {
   }
 
   return (
-    <main className={classes.main}>
+    <motion.div {...slideInOut} className={classes.div}>
       <ButtonControl
         className={
           !rolledOut
@@ -85,7 +87,7 @@ const Main: React.FC = () => {
       </ButtonControl>
       {mealsTypeSlider("find your diet", dietList)}
       {mealsTypeSlider("explore the cuisines", cuisineList)}
-    </main>
+    </motion.div>
   );
 };
 

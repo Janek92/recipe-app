@@ -1,5 +1,6 @@
 import React from "react";
 import { useParams, useLocation, useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 
 import { checkIfIsLiked } from "~/utils/reusableFunctions";
 import useFetchMeals from "~/hooks/useFetchMeals";
@@ -7,6 +8,7 @@ import useLiked from "~/hooks/useLiked";
 import useSelect from "~/hooks/useSelect";
 import Spinner from "~/components/UI/Spinner";
 import Meal from "~/components/UI/Meal";
+import { slideInOut } from "~/utils/reusableFunctions";
 
 import classes from "./Results.module.scss";
 
@@ -64,12 +66,12 @@ const Results: React.FC = () => {
   }
 
   return (
-    <div className={classes.div}>
+    <motion.div {...slideInOut} className={classes.div}>
       <>
         <h1 className={classes.h1}>{title}</h1>
         {loading ? <Spinner /> : view()}
       </>
-    </div>
+    </motion.div>
   );
 };
 
