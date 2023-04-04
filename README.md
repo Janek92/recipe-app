@@ -23,6 +23,7 @@ Application for searching variety of recipes, using spoonacular API. Allows for 
 - custom hooks for repeated actions
 - css modules for styling components
 - page animation by Framer Motion
+- lazy loading for multiple components and for images
 - responsive website design
 
 ## Information

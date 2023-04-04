@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 import { LocalStorageKeyValue } from "~/models/localStorageKeyValue";
 import ButtonControl from "./ButtonControl";
@@ -45,7 +47,8 @@ const Meal: React.FC<Props> = (props) => {
           <AiOutlineHeart />
         )}
       </ButtonControl>
-      <img className={classes.img} src={props.img} />
+      {/* <img className={classes.img} src={props.img} /> */}
+      <LazyLoadImage className={classes.img} effect="blur" src={props.img} />
       <h1 className={classes.h1}>{props.title}</h1>
     </div>
   );

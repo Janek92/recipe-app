@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import { LazyLoadComponent } from "react-lazy-load-image-component";
 
 import { checkIfIsLiked } from "~/utils/reusableFunctions";
 import useLiked from "~/hooks/useLiked";
@@ -20,14 +21,15 @@ const Favourites: React.FC = () => {
       <h1 className={classes.h1}>Favourites</h1>
       {keys.map((key) => {
         return (
-          <Meal
-            key={Math.random().toFixed(7)}
-            id={key.id}
-            title={key.title}
-            img={key.img}
-            onClick={() => select(key.id)}
-            isLiked={() => checkIfIsLiked(key.title, keysName)}
-          />
+          <LazyLoadComponent key={Math.random().toFixed(7)}>
+            <Meal
+              id={key.id}
+              title={key.title}
+              img={key.img}
+              onClick={() => select(key.id)}
+              isLiked={() => checkIfIsLiked(key.title, keysName)}
+            />
+          </LazyLoadComponent>
         );
       })}
     </motion.div>

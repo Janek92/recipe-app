@@ -1,6 +1,7 @@
 import React from "react";
 import { useParams, useLocation, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import { LazyLoadComponent } from "react-lazy-load-image-component";
 
 import { checkIfIsLiked } from "~/utils/reusableFunctions";
 import useFetchMeals from "~/hooks/useFetchMeals";
@@ -27,7 +28,7 @@ const Results: React.FC = () => {
   const { dataTypes, dataIngredients, loading, error } = useFetchMeals(
     `https://api.spoonacular.com/recipes/${
       location.state
-    }=${id}&number=20&apiKey=${import.meta.env.VITE_API_KEY}&ignorePantry=false`
+    }=${id}&number=80&apiKey=${import.meta.env.VITE_API_KEY}&ignorePantry=false`
   );
 
   function view() {
@@ -40,27 +41,29 @@ const Results: React.FC = () => {
           missedIngredients.push(ingredient.name);
         }
         return (
-          <Meal
-            id={meal.id}
-            missed={missedIngredients}
-            key={Math.random().toFixed(7)}
-            title={meal.title}
-            img={meal.image}
-            onClick={() => select(meal.id, missedIngredients)}
-            isLiked={() => checkIfIsLiked(meal.title, keysName)}
-          />
+          <LazyLoadComponent key={Math.random().toFixed(7)}>
+            <Meal
+              id={meal.id}
+              missed={missedIngredients}
+              title={meal.title}
+              img={meal.image}
+              onClick={() => select(meal.id, missedIngredients)}
+              isLiked={() => checkIfIsLiked(meal.title, keysName)}
+            />
+          </LazyLoadComponent>
         );
       });
     } else if (dataTypes) {
       return dataTypes.map((meal) => (
-        <Meal
-          id={meal.id}
-          key={Math.random().toFixed(7)}
-          title={meal.title}
-          img={meal.image}
-          onClick={select}
-          isLiked={() => checkIfIsLiked(meal.title, keysName)}
-        />
+        <LazyLoadComponent key={Math.random().toFixed(7)}>
+          <Meal
+            id={meal.id}
+            title={meal.title}
+            img={meal.image}
+            onClick={select}
+            isLiked={() => checkIfIsLiked(meal.title, keysName)}
+          />
+        </LazyLoadComponent>
       ));
     }
   }
