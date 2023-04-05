@@ -25,7 +25,7 @@ const Results: React.FC = () => {
     ? (title = `Results for: ${id.replaceAll("+", " ")}`)
     : (title = id!);
 
-  const { dataTypes, dataIngredients, loading, error } = useFetchMeals(
+  const { dataTypes, dataIngredients, loading } = useFetchMeals(
     `https://api.spoonacular.com/recipes/${
       location.state
     }=${id}&number=80&apiKey=${import.meta.env.VITE_API_KEY}&ignorePantry=false`
@@ -43,7 +43,6 @@ const Results: React.FC = () => {
         return (
           <LazyLoadComponent key={Math.random().toFixed(7)}>
             <Meal
-              // key={Math.random().toFixed(7)}
               id={meal.id}
               missed={missedIngredients}
               title={meal.title}
@@ -58,7 +57,6 @@ const Results: React.FC = () => {
       return dataTypes.map((meal) => (
         <LazyLoadComponent key={Math.random().toFixed(7)}>
           <Meal
-            // key={Math.random().toFixed(7)}
             id={meal.id}
             title={meal.title}
             img={meal.image}

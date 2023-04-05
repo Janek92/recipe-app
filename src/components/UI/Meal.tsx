@@ -4,8 +4,8 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 
 import { LocalStorageKeyValue } from "~/models/localStorageKeyValue";
-import ButtonControl from "./ButtonControl";
 
+import ButtonControl from "./ButtonControl";
 import classes from "./Meal.module.scss";
 
 interface Props {

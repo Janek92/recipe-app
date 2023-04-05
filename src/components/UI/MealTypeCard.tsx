@@ -3,6 +3,7 @@ import React from "react";
 import { Meals } from "~/models/meals";
 
 import classes from "./MealTypeCard.module.scss";
+
 interface Props extends Meals {
   onClick?: (sort: string, type: string) => void;
 }

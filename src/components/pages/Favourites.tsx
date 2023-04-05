@@ -21,7 +21,6 @@ const Favourites: React.FC = () => {
       return (
         <LazyLoadComponent key={Math.random().toFixed(7)}>
           <Meal
-            // key={Math.random().toFixed(7)}
             id={key.id}
             title={key.title}
             img={key.img}

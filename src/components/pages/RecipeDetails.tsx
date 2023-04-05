@@ -19,7 +19,7 @@ const RecipeDetails: React.FC = () => {
   const location = useLocation();
   const { id, missed } = location.state;
 
-  const { dataRecipeDetails, loading, error } = useFetchMeals(
+  const { dataRecipeDetails, loading } = useFetchMeals(
     `https://api.spoonacular.com/recipes/${id}/information?apiKey=${
       import.meta.env.VITE_API_KEY
     }`

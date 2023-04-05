@@ -1,15 +1,17 @@
 import { useEffect, useState } from "react";
-import { IngredientsData } from "../models/ingredientsData";
-import { RecipeData } from "../models/recipeData";
-import { Result } from "../models/typesData";
+import { IngredientsData } from "~/models/ingredientsData";
+import { RecipeData } from "~/models/recipeData";
+import { Result } from "~/models/typesData";
+import useError from "./useError";
 
 const useFetchMeals = (url: string) => {
   const [dataTypes, setDataTypes] = useState<Result[]>();
   const [dataIngredients, setDataIngredients] = useState<IngredientsData[]>();
   const [dataRecipeDetails, setDataRecipeDetails] = useState<RecipeData>();
+  const { setError, setMalfunction } = useError();
 
   const [loading, setLoading] = useState<boolean>(false);
-  const [error, setError] = useState<string>();
+  // const [error, setError] = useState<string>();
 
   useEffect(() => {
     setLoading(true);
@@ -18,7 +20,9 @@ const useFetchMeals = (url: string) => {
         if (res.ok) {
           return res.json();
         } else {
+          // setError();
           setError("An error occured while connection");
+          setMalfunction(true);
         }
       })
       .then((res: any) => {
@@ -38,14 +42,16 @@ const useFetchMeals = (url: string) => {
           setDataIngredients(res);
         }
       })
-      .catch((err: Error) => {
-        console.log(err);
-        setError("Data fetch failed");
+      .catch((err: string) => {
+        // console.log(err);
+        // setError();
+        setError(err);
+        setMalfunction(true);
       })
       .finally(() => setLoading(false));
   }, [url]);
 
-  return { dataTypes, dataIngredients, dataRecipeDetails, loading, error };
+  return { dataTypes, dataIngredients, dataRecipeDetails, loading };
 };
 
 export default useFetchMeals;

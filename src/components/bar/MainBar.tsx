@@ -6,7 +6,6 @@ import logo from "~/assets/Let's_eat.png";
 import ButtonControl from "~/components/UI/ButtonControl";
 
 import SearchBar from "./SearchBar";
-
 import classes from "./MainBar.module.scss";
 
 const MainBar: React.FC = () => {

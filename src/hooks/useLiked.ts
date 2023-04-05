@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { LocalStorageKeyValue } from "../models/localStorageKeyValue";
+import { LocalStorageKeyValue } from "~/models/localStorageKeyValue";
 
 const useLiked = () => {
   const [keys, setKeys] = useState<LocalStorageKeyValue[] | []>([]);
