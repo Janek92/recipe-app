@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { BsSearch, BsFillHeartFill } from "react-icons/bs";
 
@@ -13,9 +13,9 @@ const MainBar: React.FC = () => {
   const [showInputSearch, setShowInputSearch] = useState<boolean>(false);
   const navigate = useNavigate();
 
-  function showInputHandler() {
+  const showInputHandler = useCallback(() => {
     setShowInputSearch((prev) => !prev);
-  }
+  }, []);
 
   return (
     <nav className={classes.nav}>

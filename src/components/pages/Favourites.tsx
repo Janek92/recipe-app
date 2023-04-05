@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { LazyLoadComponent } from "react-lazy-load-image-component";
@@ -16,22 +16,27 @@ const Favourites: React.FC = () => {
   const { keys, keysName } = useLiked();
   const { select } = useSelect();
 
+  const view = useMemo(() => {
+    return keys.map((key) => {
+      return (
+        <LazyLoadComponent key={Math.random().toFixed(7)}>
+          <Meal
+            // key={Math.random().toFixed(7)}
+            id={key.id}
+            title={key.title}
+            img={key.img}
+            onClick={() => select(key.id)}
+            isLiked={() => checkIfIsLiked(key.title, keysName)}
+          />
+        </LazyLoadComponent>
+      );
+    });
+  }, [keys]);
+
   return (
     <motion.div {...slideInOut} className={classes.div}>
       <h1 className={classes.h1}>Favourites</h1>
-      {keys.map((key) => {
-        return (
-          <LazyLoadComponent key={Math.random().toFixed(7)}>
-            <Meal
-              id={key.id}
-              title={key.title}
-              img={key.img}
-              onClick={() => select(key.id)}
-              isLiked={() => checkIfIsLiked(key.title, keysName)}
-            />
-          </LazyLoadComponent>
-        );
-      })}
+      {view}
     </motion.div>
   );
 };

@@ -17,7 +17,7 @@ export const slideInOut: Variants = {
   initial: { transform: "translateX(-100%)" },
   animate: { transform: "translateX(0)" },
   exit: { transform: "translateX(100%)" },
-  transition: { duration: 0.3 },
+  transition: { duration: 0.17 },
 };
 
 // interface Variants {
@@ -27,9 +27,9 @@ export const slideInOut: Variants = {
 //   transition: { duration: number };
 // }
 
-// export const scaleInOut: Variants = {
-//   initial: { "transform-origin": "left", transform: "scaleX(0)" },
-//   animate: { transform: "scaleX(1)" },
-//   exit: { "transform-origin": "right", transform: "scaleX(0)" },
-//   transition: { duration: 0.3 },
+// export const slideInOut: Variants = {
+//   initial: { "transform-origin": "50% 50%", transform: "scale(0)" },
+//   animate: { transform: "scale(1)" },
+//   exit: { "transform-origin": "50% 50%", transform: "scale(0)" },
+//   transition: { duration: 0.2 },
 // };

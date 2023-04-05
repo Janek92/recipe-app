@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { useParams, useLocation, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { LazyLoadComponent } from "react-lazy-load-image-component";
@@ -31,7 +31,7 @@ const Results: React.FC = () => {
     }=${id}&number=80&apiKey=${import.meta.env.VITE_API_KEY}&ignorePantry=false`
   );
 
-  function view() {
+  const view = useMemo(() => {
     if (!dataIngredients && !dataTypes) return;
     if (dataIngredients) {
       return dataIngredients.map((meal) => {
@@ -43,6 +43,7 @@ const Results: React.FC = () => {
         return (
           <LazyLoadComponent key={Math.random().toFixed(7)}>
             <Meal
+              // key={Math.random().toFixed(7)}
               id={meal.id}
               missed={missedIngredients}
               title={meal.title}
@@ -57,6 +58,7 @@ const Results: React.FC = () => {
       return dataTypes.map((meal) => (
         <LazyLoadComponent key={Math.random().toFixed(7)}>
           <Meal
+            // key={Math.random().toFixed(7)}
             id={meal.id}
             title={meal.title}
             img={meal.image}
@@ -66,13 +68,13 @@ const Results: React.FC = () => {
         </LazyLoadComponent>
       ));
     }
-  }
+  }, [dataIngredients, dataTypes]);
 
   return (
     <motion.div {...slideInOut} className={classes.div}>
       <>
         <h1 className={classes.h1}>{title}</h1>
-        {loading ? <Spinner /> : view()}
+        {loading ? <Spinner /> : view}
       </>
     </motion.div>
   );

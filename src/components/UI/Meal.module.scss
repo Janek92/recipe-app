@@ -1,9 +1,21 @@
+@keyframes onDisplay {
+  from {
+    transform-origin: 50% 50%;
+    transform: scale(0);
+  }
+  to {
+    transform-origin: 50% 50%;
+    transform: scale(1);
+  }
+}
+
 .div {
   flex-basis: 49%;
   border-radius: 1rem;
   background-color: var(--basic-color);
   margin-bottom: 0.2rem;
   position: relative;
+  animation: onDisplay 0.3s linear;
   .img {
     width: 100%;
     border-radius: 1rem;
@@ -17,6 +29,7 @@
     border-radius: 50%;
     top: 0;
     right: 0;
+    z-index: 1;
     &:active {
       background-color: rgba(0, 0, 0, 0);
       transform: scale(0.98);

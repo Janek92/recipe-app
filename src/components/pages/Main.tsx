@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { MdRestaurantMenu } from "react-icons/md";
 import { BsHandIndex } from "react-icons/bs";
@@ -18,10 +18,10 @@ const Main: React.FC = () => {
   const menuRef = useRef<HTMLUListElement>(null);
   const [rolledOut, setRolledOut] = useState<boolean>(false);
 
-  function clickHandler(sort: string, type: string) {
+  const clickHandler = useCallback((sort: string, type: string) => {
     const state = `complexSearch?${type}`;
     navigate(`/${sort}`, { state });
-  }
+  }, []);
 
   function mealsTypeSlider(title: string, mealsTypeList: Meals[]) {
     return (
