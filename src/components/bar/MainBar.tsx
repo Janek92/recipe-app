@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { BsSearch, BsFillHeartFill } from "react-icons/bs";
 
 import logo from "~/assets/Let's_eat.png";
+import logoTaste from "~/assets/TASTE-gif.gif";
 import ButtonControl from "~/components/UI/ButtonControl";
 
 import SearchBar from "./SearchBar";
@@ -19,17 +20,21 @@ const MainBar: React.FC = () => {
   return (
     <nav className={classes.nav}>
       {showInputSearch ? (
-        <SearchBar onCloseInput={showInputHandler} />
+        <SearchBar isForDesktop={false} onCloseInput={showInputHandler} />
       ) : (
         <>
           <button
             onClick={() => navigate("/")}
             className={classes["button-logo"]}
           >
-            <img className={classes.logo} src={logo}></img>
+            <img className={classes.logo} src={logoTaste}></img>
           </button>
+          <SearchBar isForDesktop={true} />
           <div className={classes.menu}>
-            <ButtonControl onClick={showInputHandler}>
+            <ButtonControl
+              className={classes["show-menu-button"]}
+              onClick={showInputHandler}
+            >
               <BsSearch />
             </ButtonControl>
             <ButtonControl onClick={() => navigate("/favourites")}>

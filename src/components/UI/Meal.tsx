@@ -47,7 +47,6 @@ const Meal: React.FC<Props> = (props) => {
           <AiOutlineHeart />
         )}
       </ButtonControl>
-      {/* <img className={classes.img} src={props.img} /> */}
       <LazyLoadImage className={classes.img} effect="blur" src={props.img} />
       <h1 className={classes.h1}>{props.title}</h1>
     </div>

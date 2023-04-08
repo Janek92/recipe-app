@@ -85,7 +85,7 @@ export const dietList = [
   { img: primal, title: "primal", type: "diet" },
   { img: vegan, title: "vegan", type: "diet" },
   { img: vegetarian, title: "vegetarian", type: "diet" },
-  { img: whole30, title: "whole 30", type: "diet" },
+  // { img: whole30, title: "whole 30", type: "diet" },
 ];
 
 export const dailyMealList = [

@@ -1,17 +1,30 @@
 @mixin page-card($padding: 0rem) {
   padding: $padding;
   padding-top: calc(var(--bar-height) + $padding);
-  // min-height: 100vh;
 }
 
-@mixin titles($font-size: 1.2rem, $font-weight: 400, $text-align: center) {
+@mixin titles(
+  $font-size: 1.2rem,
+  $font-weight: 400,
+  $text-align: center,
+  $margin: 0.8rem 0
+) {
   font-size: $font-size;
   font-weight: $font-weight;
   text-transform: uppercase;
   text-align: $text-align;
-  margin: 0.8rem 0;
+  margin: $margin;
+  width: 100%;
   @media screen and (min-width: 992px) {
-    flex-wrap: wrap;
-    font-size: calc(1.2 * $font-size);
+    font-size: 1.4rem;
+    font-weight: 400;
+    text-align: left;
+    margin: 0.8rem 0.4rem;
+  }
+  @media screen and (min-width: 1200px) {
+    font-size: 1.6rem;
+    font-weight: 500;
+    text-align: left;
+    margin: 0.8rem 0.4rem;
   }
 }

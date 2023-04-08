@@ -10,6 +10,13 @@
     font-size: 1.3rem;
     margin: 0 0.2rem;
   }
+  @media screen and (min-width: 992px) {
+    font-size: 1.4rem;
+    & svg {
+      font-size: 1.8rem;
+      margin: 0 0.4rem;
+    }
+  }
 }
 .segment {
   margin-top: 0.3rem;
@@ -31,6 +38,7 @@
     align-items: center;
     color: #aaa;
     padding: 0.1rem;
+    width: 100%;
     & svg:nth-of-type(2) {
       margin-left: 1rem;
     }
@@ -67,6 +75,40 @@
       li {
         margin-bottom: 0.3rem;
       }
+    }
+  }
+  @media screen and (min-width: 992px) {
+    .img {
+      width: 80%;
+    }
+    .ready-time {
+      font-size: 1.5rem;
+      padding: 0.2rem;
+      .value {
+        font-size: 1.1rem;
+      }
+    }
+    .ingredients {
+      .ul {
+        list-style: circle;
+        padding: 0.4rem;
+        font-size: 1rem;
+        margin: 0.8rem 1.2rem;
+      }
+    }
+    .instructions {
+      font-size: 1rem;
+      ol {
+        margin: 0 1.6rem;
+        li {
+          margin-bottom: 0.6rem;
+        }
+      }
+    }
+  }
+  @media screen and (min-width: 1200px) {
+    .img {
+      width: 60%;
     }
   }
 }

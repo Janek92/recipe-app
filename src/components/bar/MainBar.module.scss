@@ -1,32 +1,42 @@
 .nav {
   height: var(--bar-height);
   width: 100%;
-  border-bottom: 1px solid var(--basic-color);
+  border-bottom: 2px solid var(--basic-color);
   position: fixed;
   display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: #fff;
   z-index: 1;
+  padding: 0 0.6rem;
+
   .button-logo {
-    margin: 0.3rem;
-    width: 5rem;
+    width: 3.7rem;
     background-color: transparent;
     border: none;
-    transition: all 0.2s;
+    overflow: hidden;
     &:active {
       transform: scale(0.96);
     }
     .logo {
       width: 100%;
-    }
-    @media screen and (min-width: 992px) {
-      cursor: pointer;
+      transform: scale(1.1);
     }
   }
   .menu {
     display: flex;
     justify-content: center;
     align-items: center;
+    .show-menu-button {
+      @media screen and (min-width: 992px) {
+        display: none;
+      }
+    }
+  }
+  @media screen and (min-width: 992px) {
+    .button-logo {
+      cursor: pointer;
+      grid-column: 1/1;
+    }
   }
 }

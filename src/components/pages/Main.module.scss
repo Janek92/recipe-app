@@ -51,6 +51,7 @@
         flex-wrap: wrap;
         width: 100%;
         justify-content: space-between;
+        border-bottom: 1px solid var(--basic-color);
       }
     }
   }
@@ -109,7 +110,7 @@
       list-style: none;
       display: flex;
       cursor: pointer;
-      & li {
+      li {
         color: var(--basic-color);
         &:hover {
           color: green;
@@ -118,8 +119,18 @@
           display: flex;
           align-items: center;
           font-size: 0.8rem;
-          & svg {
+          svg {
             font-size: 2rem;
+          }
+        }
+      }
+    }
+    @media screen and (min-width: 1200px) {
+      li {
+        p {
+          font-size: 0.9rem;
+          svg {
+            font-size: 2.1rem;
           }
         }
       }

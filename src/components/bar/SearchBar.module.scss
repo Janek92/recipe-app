@@ -19,6 +19,9 @@
   padding: 0 0.3rem;
   .return {
     margin: 0;
+    @media screen and (min-width: 992px) {
+      display: none;
+    }
   }
   .form {
     width: 85%;
@@ -33,6 +36,16 @@
         transform: translateX(-100%);
         transition: 0.4s;
       }
+    }
+  }
+}
+.desktop {
+  display: none;
+  @media screen and (min-width: 992px) {
+    display: flex;
+    width: 75%;
+    .form {
+      width: 100%;
     }
   }
 }

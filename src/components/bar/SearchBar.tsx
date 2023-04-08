@@ -7,7 +7,8 @@ import ButtonControl from "~/components/UI/ButtonControl";
 import classes from "./SearchBar.module.scss";
 
 interface Props {
-  onCloseInput: () => void;
+  onCloseInput?: () => void;
+  isForDesktop: boolean;
 }
 
 const SearchBar: React.FC<Props> = (props) => {
@@ -15,7 +16,7 @@ const SearchBar: React.FC<Props> = (props) => {
   const navigate = useNavigate();
 
   function hideInputHandler() {
-    props.onCloseInput();
+    props.onCloseInput!();
   }
 
   const submitHandler = (e: React.FormEvent) => {
@@ -30,7 +31,11 @@ const SearchBar: React.FC<Props> = (props) => {
   };
 
   return (
-    <div className={classes.div}>
+    <div
+      className={
+        props.isForDesktop ? `${classes.div} ${classes.desktop}` : classes.div
+      }
+    >
       <ButtonControl className={classes.return} onClick={hideInputHandler}>
         <BsArrowLeft />
       </ButtonControl>
