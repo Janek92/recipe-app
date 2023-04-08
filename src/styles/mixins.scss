@@ -10,4 +10,8 @@
   text-transform: uppercase;
   text-align: $text-align;
   margin: 0.8rem 0;
+  @media screen and (min-width: 992px) {
+    flex-wrap: wrap;
+    font-size: calc(1.2 * $font-size);
+  }
 }

@@ -47,6 +47,11 @@
           animation: none;
         }
       }
+      @media screen and (min-width: 992px) {
+        flex-wrap: wrap;
+        width: 100%;
+        justify-content: space-between;
+      }
     }
   }
   .expander {
@@ -62,9 +67,11 @@
     &:active {
       transform: scale(1);
     }
+    @media screen and (min-width: 992px) {
+      display: none;
+    }
   }
   .menu {
-    display: none;
     position: absolute;
     top: calc(var(--expander-dimensions) + 2px);
     background-color: #fff;
@@ -94,6 +101,28 @@
       transform-origin: left;
       display: flex;
       align-items: center;
+    }
+  }
+  .menu-desktop {
+    display: none;
+    @media screen and (min-width: 992px) {
+      list-style: none;
+      display: flex;
+      cursor: pointer;
+      & li {
+        color: var(--basic-color);
+        &:hover {
+          color: green;
+        }
+        p {
+          display: flex;
+          align-items: center;
+          font-size: 0.8rem;
+          & svg {
+            font-size: 2rem;
+          }
+        }
+      }
     }
   }
   .--roll-out {

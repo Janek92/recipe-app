@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 import { Meals } from "~/models/meals";
 import { cuisineList, dietList, dailyMealList } from "~/utils/images";
-import MealTypeCard from "~/components/UI/MealTypeCard";
+import LargeMealCard from "~/components/UI/LargeMealCard";
 import ButtonControl from "~/components/UI/ButtonControl";
 import SmallIcons from "~/components/UI/SmallIcons";
 import { slideInOut } from "~/utils/reusableFunctions";
@@ -23,6 +23,33 @@ const Main: React.FC = () => {
     navigate(`/${sort}`, { state });
   }, []);
 
+  function list(nameOfClass: string) {
+    return (
+      <ul
+        className={
+          !rolledOut
+            ? classes[`${nameOfClass}`]
+            : `${classes[`${nameOfClass}`]} ${classes["--roll-out"]}`
+        }
+        ref={menuRef}
+      >
+        {dailyMealList.map((el) => {
+          return (
+            <SmallIcons
+              title={el.title}
+              type={el.type}
+              onClick={clickHandler}
+              key={Math.random().toFixed(7)}
+            >
+              <el.img />
+              {el.title}
+            </SmallIcons>
+          );
+        })}
+      </ul>
+    );
+  }
+
   function mealsTypeSlider(title: string, mealsTypeList: Meals[]) {
     return (
       <>
@@ -34,7 +61,7 @@ const Main: React.FC = () => {
             </span>
             {mealsTypeList.map((image) => {
               return (
-                <MealTypeCard
+                <LargeMealCard
                   img={image.img}
                   title={image.title}
                   type={image.type}
@@ -62,29 +89,9 @@ const Main: React.FC = () => {
         }}
       >
         <MdRestaurantMenu />
-        <ul
-          className={
-            !rolledOut
-              ? classes.menu
-              : `${classes.menu} ${classes["--roll-out"]}`
-          }
-          ref={menuRef}
-        >
-          {dailyMealList.map((el) => {
-            return (
-              <SmallIcons
-                title={el.title}
-                type={el.type}
-                onClick={clickHandler}
-                key={Math.random().toFixed(7)}
-              >
-                <el.img />
-                {el.title}
-              </SmallIcons>
-            );
-          })}
-        </ul>
+        {list("menu")}
       </ButtonControl>
+      {list("menu-desktop")}
       {mealsTypeSlider("find your diet", dietList)}
       {mealsTypeSlider("explore the cuisines", cuisineList)}
     </motion.div>
