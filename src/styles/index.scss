@@ -16,6 +16,7 @@ html {
 :root {
   --basic-color: #73ba82;
   --bar-height: 80px;
+  --footer-height: calc(1.5 * var(--bar-height));
   --main-font: "Montserrat", "arial", sans-serif;
   --btn-ctrl-radius: 0.3rem;
 }

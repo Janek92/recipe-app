@@ -10,12 +10,13 @@
 }
 
 .div {
-  flex-basis: 49%;
+  flex-basis: 45%;
   border-radius: 1rem;
   background-color: var(--basic-color);
   margin-bottom: 0.2rem;
   position: relative;
   animation: onDisplay 0.3s linear;
+  align-self: self-start;
   .img {
     width: 100%;
     border-radius: 1rem;

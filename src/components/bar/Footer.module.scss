@@ -1,5 +1,6 @@
 .div {
-  height: calc(1.5 * var(--bar-height));
+  // height: calc(1.5 * var(--bar-height));
+  height: var(--footer-height);
   width: 100%;
   border-bottom: 2px solid var(--basic-color);
   display: flex;
