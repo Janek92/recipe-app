@@ -11,7 +11,7 @@
   padding: 0 0.6rem;
 
   .button-logo {
-    width: 3.7rem;
+    width: 6rem;
     background-color: transparent;
     border: none;
     overflow: hidden;
@@ -20,7 +20,6 @@
     }
     .logo {
       width: 100%;
-      transform: scale(1.1);
     }
   }
   .menu {
@@ -36,7 +35,6 @@
   @media screen and (min-width: 992px) {
     .button-logo {
       cursor: pointer;
-      grid-column: 1/1;
     }
   }
 }

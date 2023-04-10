@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import { useParams, useLocation, useNavigate } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import { LazyLoadComponent } from "react-lazy-load-image-component";
 
@@ -14,7 +14,6 @@ import { slideInOut } from "~/utils/reusableFunctions";
 import classes from "./Results.module.scss";
 
 const Results: React.FC = () => {
-  const navigate = useNavigate();
   const { id } = useParams();
   const location = useLocation();
   const { keysName } = useLiked();

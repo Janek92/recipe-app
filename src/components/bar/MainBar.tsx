@@ -2,8 +2,7 @@ import React, { useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { BsSearch, BsFillHeartFill } from "react-icons/bs";
 
-import logo from "~/assets/Let's_eat.png";
-import logoTaste from "~/assets/TASTE-gif.gif";
+import logo from "~/assets/taste-it-gif.gif";
 import ButtonControl from "~/components/UI/ButtonControl";
 
 import SearchBar from "./SearchBar";
@@ -27,7 +26,7 @@ const MainBar: React.FC = () => {
             onClick={() => navigate("/")}
             className={classes["button-logo"]}
           >
-            <img className={classes.logo} src={logoTaste}></img>
+            <img className={classes.logo} src={logo}></img>
           </button>
           <SearchBar isForDesktop={true} />
           <div className={classes.menu}>

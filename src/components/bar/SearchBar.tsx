@@ -22,12 +22,12 @@ const SearchBar: React.FC<Props> = (props) => {
   const submitHandler = (e: React.FormEvent) => {
     e.preventDefault();
     const ingredients = inputRef.current!.value;
-    const ingredientsPepared = ingredients.split(/[,\s]+/).join(",+");
+    const ingredientsPrepared = ingredients.split(/[,\s]+/).join(",+");
     inputRef.current!.value = "";
-    hideInputHandler();
     // const state: string = "ingredients";
     const state: string = `findByIngredients?ingredients`;
-    navigate(`/${ingredientsPepared}`, { state });
+    navigate(`/${ingredientsPrepared}`, { state });
+    hideInputHandler();
   };
 
   return (

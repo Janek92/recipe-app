@@ -1,0 +1,10 @@
+@import "../../styles/mixins.scss";
+.div {
+  @include page-card();
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  .h1 {
+    @include titles();
+  }
+}

@@ -1,10 +1,10 @@
-# Recipe app
+# Taste It
 
-![tutorial thumbnail](src/assets/Let's_eat.png)
+![tutorial thumbnail](src/assets/taste-it-gif.gif)
 
-Application for searching variety of recipes, using spoonacular API. Allows for searching recipes according to diets, cuisines, meal types and also ingredients which you type in search bar.
+Application for searching variety of recipes, using spoonacular API. Allows for searching recipes according to diets, cuisines, meal types and also ingredients which you will type in search bar.
 
-//link to website
+https://taste-it-fe2f6.web.app
 
 ## Technologies
 

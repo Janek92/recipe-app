@@ -17,6 +17,9 @@ const Favourites: React.FC = () => {
   const { select } = useSelect();
 
   const view = useMemo(() => {
+    if (keys.length === 0) {
+      return <p className={classes.p}>No favourite meals added yet</p>;
+    }
     return keys.map((key) => {
       return (
         <LazyLoadComponent key={Math.random().toFixed(7)}>
