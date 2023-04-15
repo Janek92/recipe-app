@@ -18,14 +18,14 @@ const Footer: React.FC = () => {
       <div className={classes["social-media"]}>
         {mediaIconCreator(
           BsLinkedin,
-          "linkedin.com/in/jan-jakóbczyk-973b15271"
+          "https://linkedin.com/in/jan-jakóbczyk-973b15271"
         )}
         {mediaIconCreator(BsGithub, "https://github.com/Janek92")}
         {mediaIconCreator(BsFacebook, "https://www.facebook.com/janq.jj")}
       </div>
       <div className={classes.information}>
         <p>author : Jan Jakóbczyk</p>
-        <p>last update : 09.04.2023</p>
+        <p>last update : 10.04.2023</p>
       </div>
     </div>
   );

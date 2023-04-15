@@ -60,7 +60,7 @@ const RecipeDetails: React.FC = () => {
       <>
         <h1 className={classes.h1}>{dataRecipeDetails.title}</h1>
         <img className={classes.img} src={dataRecipeDetails.image}></img>
-        <div className={classes["ready-time"]}>
+        <div className={classes["time-portions-info"]}>
           <AiOutlineClockCircle />
           <span className={classes.value}>
             {dataRecipeDetails.readyInMinutes}min

@@ -45,7 +45,7 @@ const useFetchMeals = (url: string) => {
       .catch((err: string) => {
         // console.log(err);
         // setError();
-        setError(err);
+        setError("Daily request limit to API has been reached.");
         setMalfunction(true);
       })
       .finally(() => setLoading(false));

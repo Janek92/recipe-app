@@ -25,11 +25,19 @@
   @include page-card();
   .h1 {
     @include titles();
+    @media (orientation: portrait) and (min-width: 768px) {
+      font-size: 1.8rem;
+      margin: 0.9rem;
+    }
+    @media (orientation: landscape) and (min-width: 992px) {
+      font-size: 1.8rem;
+    }
   }
   .card-container {
     width: 100%;
     overflow-x: auto;
     display: flex;
+    border-bottom: 1px solid var(--basic-color);
     .list {
       display: flex;
       list-style: none;
@@ -43,22 +51,21 @@
         z-index: 3;
         opacity: 0;
         animation: slide 0.7s linear 0.3s 2 forwards;
-        @media (orientation: landscape) {
-          animation: none;
+        @media (orientation: landscape) and (min-width: 992px) {
+          display: none;
         }
       }
-      @media screen and (min-width: 992px) {
-        flex-wrap: wrap;
+      @media (orientation: landscape) and (min-width: 992px) {
         width: 100%;
-        justify-content: space-between;
-        border-bottom: 1px solid var(--basic-color);
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
       }
     }
   }
   .expander {
     position: fixed;
     top: var(-bar-height);
-    margin: 0.1rem;
+    margin: 0.2rem 0;
     left: 0.2rem;
     font-size: 2.3rem;
     width: var(--expander-dimensions);
@@ -68,7 +75,10 @@
     &:active {
       transform: scale(1);
     }
-    @media screen and (min-width: 992px) {
+    @media (orientation: portrait) and (min-width: 768px) {
+      font-size: 3rem;
+    }
+    @media (orientation: landscape) and (min-width: 992px) {
       display: none;
     }
   }
@@ -89,7 +99,6 @@
     align-items: center;
     flex-wrap: wrap;
     opacity: 0;
-
     @media (orientation: landscape) {
       height: 100%;
       width: auto;
@@ -106,7 +115,7 @@
   }
   .menu-desktop {
     display: none;
-    @media screen and (min-width: 992px) {
+    @media (orientation: landscape) and (min-width: 992px) {
       list-style: none;
       display: flex;
       cursor: pointer;
@@ -121,16 +130,6 @@
           font-size: 0.8rem;
           svg {
             font-size: 2rem;
-          }
-        }
-      }
-    }
-    @media screen and (min-width: 1200px) {
-      li {
-        p {
-          font-size: 0.9rem;
-          svg {
-            font-size: 2.1rem;
           }
         }
       }
@@ -150,5 +149,8 @@
       border-bottom-left-radius: var(--btn-ctrl-radius);
       border-top-right-radius: 0px;
     }
+  }
+  @media (orientation: portrait) and (min-width: 768px) {
+    --expander-dimensions: 3.8rem;
   }
 }

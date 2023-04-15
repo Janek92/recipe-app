@@ -19,33 +19,49 @@
   padding: 0 0.3rem;
   .return {
     margin: 0;
-    @media screen and (min-width: 992px) {
+    @media (min-width: 768px) {
+      font-size: 2rem;
+    }
+    @media (orientation: landscape) and (min-width: 992px) {
       display: none;
     }
   }
   .form {
     width: 85%;
     height: 2.2rem;
-    // margin-right: 0.3rem;
     .input {
       width: 100%;
       height: 100%;
       font-size: 1rem;
       border: 2px solid var(--basic-color);
+      padding: 0 0.4rem;
       &:focus::placeholder {
         transform: translateX(-100%);
         transition: 0.4s;
       }
+      @media (min-width: 768px) {
+        font-size: 1.2rem;
+      }
+    }
+    @media (min-width: 768px) {
+      height: 2.8rem;
     }
   }
 }
 .desktop {
   display: none;
-  @media screen and (min-width: 992px) {
+  @media (orientation: landscape) and (min-width: 992px) {
     display: flex;
     width: 75%;
     .form {
       width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      .input {
+        height: 60%;
+        font-size: 1.1rem;
+      }
     }
   }
 }

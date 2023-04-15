@@ -36,7 +36,10 @@ const MainBar: React.FC = () => {
             >
               <BsSearch />
             </ButtonControl>
-            <ButtonControl onClick={() => navigate("/favourites")}>
+            <ButtonControl
+              className={classes["favourites-button"]}
+              onClick={() => navigate("/favourites")}
+            >
               <BsFillHeartFill />
             </ButtonControl>
           </div>

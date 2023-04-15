@@ -1,11 +1,7 @@
 @import "../../styles/mixins.scss";
 .div {
-  @include page-card(0.2rem);
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-
+  @include result-favourites-card(0.5rem);
   .h1 {
-    @include titles();
+    @include result-favourites-titles();
   }
 }

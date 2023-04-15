@@ -15,14 +15,19 @@ html {
 
 :root {
   --basic-color: #73ba82;
-  --bar-height: 80px;
-  --footer-height: calc(1.5 * var(--bar-height));
+  --bar-height: 60px;
+  --footer-height: calc(1.7 * var(--bar-height));
   --main-font: "Montserrat", "arial", sans-serif;
   --btn-ctrl-radius: 0.3rem;
+  --max-width: 1600px;
+  --min-width: 340px;
+  @media (min-width: 768px) {
+    --bar-height: 80px;
+  }
 }
 
 body {
-  min-width: 320px;
-  max-width: 1600px;
-  // margin: 0 auto;
+  max-width: var(--max-width);
+  min-width: var(--min-width);
+  margin: 0 auto;
 }

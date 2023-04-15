@@ -9,30 +9,43 @@
   & svg {
     font-size: 1.3rem;
     margin: 0 0.2rem;
-  }
-  @media screen and (min-width: 992px) {
-    font-size: 1.4rem;
-    & svg {
-      font-size: 1.8rem;
-      margin: 0 0.4rem;
+    @media (orientation: portrait) and (min-width: 768px) {
+      font-size: 1.5rem;
     }
+    @media (orientation: landscape) and (min-width: 992px) {
+      font-size: 1.5rem;
+    }
+  }
+  @media (orientation: portrait) and (min-width: 768px) {
+    font-size: 1.2rem;
+  }
+  @media (orientation: landscape) and (min-width: 992px) {
+    font-size: 1.2rem;
   }
 }
 .segment {
   margin-top: 0.3rem;
+  padding: 0.3rem;
 }
 .div {
   @include page-card();
   display: flex;
   flex-wrap: wrap;
   .h1 {
-    @include titles(1.1rem, 600, left);
+    // @include titles(1.1rem, 600, left);
+    @include titles();
   }
   .img {
     width: 100%;
     margin: 0 auto;
+    @media (orientation: portrait) and (min-width: 768px) {
+      width: 70%;
+    }
+    @media (orientation: landscape) and (min-width: 992px) {
+      width: 50%;
+    }
   }
-  .ready-time {
+  .time-portions-info {
     font-size: 1.3rem;
     display: flex;
     align-items: center;
@@ -45,6 +58,12 @@
     .value {
       font-size: 0.9rem;
     }
+    @media (orientation: portrait) and (min-width: 768px) {
+      justify-content: center;
+    }
+    @media (orientation: landscape) and (min-width: 992px) {
+      justify-content: center;
+    }
   }
   .ingredients {
     background-color: #ffc2c2;
@@ -54,6 +73,18 @@
       padding: 0.2rem;
       font-size: 0.8rem;
       margin: 0 0.9rem;
+      @media (orientation: portrait) and (min-width: 768px) {
+        font-size: 1rem;
+      }
+      @media (orientation: landscape) and (min-width: 992px) {
+        font-size: 1rem;
+      }
+    }
+    @media (orientation: landscape) {
+      width: 50%;
+    }
+    @media (orientation: portrait) and (min-width: 768px) {
+      width: 50%;
     }
   }
   .--not-missing {
@@ -76,39 +107,11 @@
         margin-bottom: 0.3rem;
       }
     }
-  }
-  @media screen and (min-width: 992px) {
-    .img {
-      width: 80%;
+    @media (orientation: portrait) and (min-width: 768px) {
+      font-size: 1.1rem;
     }
-    .ready-time {
-      font-size: 1.5rem;
-      padding: 0.2rem;
-      .value {
-        font-size: 1.1rem;
-      }
-    }
-    .ingredients {
-      .ul {
-        list-style: circle;
-        padding: 0.4rem;
-        font-size: 1rem;
-        margin: 0.8rem 1.2rem;
-      }
-    }
-    .instructions {
-      font-size: 1rem;
-      ol {
-        margin: 0 1.6rem;
-        li {
-          margin-bottom: 0.6rem;
-        }
-      }
-    }
-  }
-  @media screen and (min-width: 1200px) {
-    .img {
-      width: 60%;
+    @media (orientation: landscape) and (min-width: 992px) {
+      font-size: 1.1rem;
     }
   }
 }

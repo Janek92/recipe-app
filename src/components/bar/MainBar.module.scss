@@ -1,6 +1,7 @@
 .nav {
   height: var(--bar-height);
   width: 100%;
+  max-width: var(--max-width);
   border-bottom: 2px solid var(--basic-color);
   position: fixed;
   display: flex;
@@ -21,18 +22,32 @@
     .logo {
       width: 100%;
     }
+    @media (min-width: 768px) {
+      width: 8rem;
+    }
+    @media (orientation: landscape) and (min-width: 992px) {
+      width: 7rem;
+    }
   }
   .menu {
     display: flex;
     justify-content: center;
     align-items: center;
     .show-menu-button {
-      @media screen and (min-width: 992px) {
+      @media (min-width: 768px) {
+        font-size: 2rem;
+      }
+      @media (orientation: landscape) and (min-width: 992px) {
         display: none;
       }
     }
+    .favourites-button {
+      @media (min-width: 768px) {
+        font-size: 2rem;
+      }
+    }
   }
-  @media screen and (min-width: 992px) {
+  @media (orientation: landscape) and (min-width: 992px) {
     .button-logo {
       cursor: pointer;
     }

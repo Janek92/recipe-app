@@ -15,7 +15,8 @@
     background-color: #eee;
     transform: scale(0.98);
   }
-  @media screen and (min-width: 992px) {
+  //desktop:
+  @media (orientation: landscape) and (min-width: 992px) {
     font-size: 1.8rem;
     &:hover {
       cursor: pointer;

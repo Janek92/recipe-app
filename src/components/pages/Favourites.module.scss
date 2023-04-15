@@ -1,22 +1,12 @@
 @import "../../styles/mixins.scss";
 .div {
-  @include page-card();
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-content: flex-start;
+  @include result-favourites-card(0.5rem);
   .h1 {
-    @include titles();
+    @include result-favourites-titles();
   }
   .p {
     font-size: 0.8rem;
     width: 100%;
     text-align: center;
-    @media screen and (min-width: 992px) {
-      font-size: 1.1rem;
-    }
-    @media screen and (min-width: 1200px) {
-      font-size: 1.3rem;
-    }
   }
 }

@@ -1,24 +1,16 @@
-@keyframes onDisplay {
-  from {
-    transform-origin: 50% 50%;
-    transform: scale(0);
-  }
-  to {
-    transform-origin: 50% 50%;
-    transform: scale(1);
-  }
-}
-
 .div {
-  flex-basis: 45%;
+  --div-img-width: 8rem;
+  --img-height: calc((3 * var(--div-img-width)) / 4);
+  width: var(--div-img-width);
   border-radius: 1rem;
   background-color: var(--basic-color);
-  margin-bottom: 0.2rem;
   position: relative;
-  animation: onDisplay 0.3s linear;
-  align-self: self-start;
+  justify-self: center;
+  transition: 0.2s;
   .img {
-    width: 100%;
+    width: var(--div-img-width);
+    height: var(--img-height);
+    object-fit: cover;
     border-radius: 1rem;
   }
   .button {
@@ -42,24 +34,21 @@
     text-align: center;
     color: #fff;
     padding: 0.2rem;
+    @media (orientation: portrait) and (min-width: 768px) {
+      font-size: 0.9rem;
+    }
+    @media (orientation: landscape) and (min-width: 992px) {
+      font-size: 0.9rem;
+    }
   }
-  @media screen and (min-width: 992px) {
-    flex-basis: 30%;
+  @media (orientation: portrait) and (min-width: 768px) {
+    --div-img-width: 9rem;
+  }
+  @media (orientation: landscape) and (min-width: 992px) {
+    --div-img-width: 9.5rem;
     cursor: pointer;
-    .button {
-      font-size: 2.4rem;
+    &:hover {
+      box-shadow: 0 0 0.6rem 0 var(--basic-color);
     }
-    .h1 {
-      font-size: 1rem;
-    }
-  }
-  @media screen and (min-width: 1200px) {
-    flex-basis: 24%;
-    .h1 {
-      font-size: 1.1rem;
-    }
-  }
-  @media screen and (min-width: 1366px) {
-    flex-basis: 19%;
   }
 }

@@ -1,5 +1,5 @@
 .div {
-  flex: 0 0 auto;
+  // flex: 0 0 auto;
   width: 70vw;
   height: 70vw;
   margin: 0.3rem 15vw;
@@ -14,18 +14,6 @@
     box-shadow: inset 1rem -2rem 2rem 0.1rem #000;
     transition: transform 0.18s;
   }
-  @media (orientation: landscape) {
-    width: 8rem;
-    height: 8rem;
-    margin: 0.3rem;
-  }
-  @media screen and (min-width: 992px) {
-    cursor: pointer;
-    width: 18%;
-    &:hover .background {
-      transform: scale(1.1) rotate(3deg);
-    }
-  }
 
   .title {
     font-size: 0.8rem;
@@ -34,11 +22,34 @@
     bottom: 0.3rem;
     left: 0.3rem;
     text-transform: uppercase;
-    @media screen and (min-width: 992px) {
-      font-size: 0.9rem;
+    @media (min-width: 768px) {
+      font-size: 1.2rem;
     }
-    @media screen and (min-width: 1200px) {
+    @media (orientation: landscape) and (min-width: 992px) {
       font-size: 1rem;
     }
+  }
+  @media (orientation: landscape) {
+    width: 23vw;
+    height: 23vw;
+    margin: 0.3rem 1vw;
+  }
+  @media (orientation: portrait) and (min-width: 768px) {
+    width: 30vw;
+    height: 30vw;
+    margin: 0.3rem 1.66vw;
+  }
+  @media (orientation: landscape) and (min-width: 992px) {
+    cursor: pointer;
+    width: 9rem;
+    height: 9rem;
+    justify-self: center;
+    &:hover .background {
+      transform: scale(1.1) rotate(3deg);
+    }
+  }
+  @media (orientation: landscape) and (min-width: 1366px) {
+    width: 11rem;
+    height: 11rem;
   }
 }
